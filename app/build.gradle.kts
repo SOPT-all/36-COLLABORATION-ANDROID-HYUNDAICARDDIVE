@@ -53,6 +53,9 @@ android {
 }
 
 dependencies {
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.ui.test.junit4)
     // Core Libraries
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
