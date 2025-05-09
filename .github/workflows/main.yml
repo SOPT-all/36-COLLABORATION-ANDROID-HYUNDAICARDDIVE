@@ -42,8 +42,12 @@ jobs:
         run: |
           echo "base.url=$BASE_URL" >> local.properties
 
+      - name: 🔍 Check local.properties content
+        run: cat local.properties
+
       - name: Lint Check
         run: ./gradlew ktlintCheck
 
       - name: Build with Gradle
         run: ./gradlew build
+
