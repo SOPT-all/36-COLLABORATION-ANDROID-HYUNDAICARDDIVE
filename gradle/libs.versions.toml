@@ -28,6 +28,11 @@ okhttp = "4.11.0"
 retrofit = "2.9.0"
 retrofitKotlinSerializationConverter = "1.0.0"
 
+# Testing
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
 # Coil
 coil = "2.7.0"
 
@@ -70,6 +75,12 @@ retrofit-kotlin-serialization-converter = { group = "com.jakewharton.retrofit", 
 okhttp-bom = { group = "com.squareup.okhttp3", name = "okhttp-bom", version.ref = "okhttp" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp" }
 okhttp-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
+
+# Testing
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 # Coil
 coil = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
