@@ -8,5 +8,4 @@ import org.sopt.hyundaicarddive.domain.usecase.DummyUseCase
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val dummyUseCase: DummyUseCase
-): ViewModel(){
-}
+) : ViewModel()

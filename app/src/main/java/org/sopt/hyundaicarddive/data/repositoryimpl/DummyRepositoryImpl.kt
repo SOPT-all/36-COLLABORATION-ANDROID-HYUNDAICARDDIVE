@@ -6,7 +6,6 @@ import org.sopt.hyundaicarddive.data.remote.datasource.DummyRemoteDataSource
 import org.sopt.hyundaicarddive.domain.model.DummyData
 import org.sopt.hyundaicarddive.domain.repository.DummyRepository
 
-
 class DummyRepositoryImpl @Inject constructor(
     private val dummyRemoteDataSource: DummyRemoteDataSource
 ) : DummyRepository {
