@@ -22,7 +22,7 @@ object HyunDaiCardDiveTheme {
 }
 
 @Composable
-fun ProvideTvingColorsAndTypography(
+fun ProvideHyunDaiCardDiveColorsAndTypography(
     colors: HyunDaiCardDiveColors,
     typography: HyunDaiCardDiveTypography,
     content: @Composable () -> Unit
@@ -35,10 +35,10 @@ fun ProvideTvingColorsAndTypography(
 }
 
 @Composable
-fun TvingTheme(
+fun HyunDaiCardDiveTheme(
     content: @Composable () -> Unit
 ) {
-    ProvideTvingColorsAndTypography(
+    ProvideHyunDaiCardDiveColorsAndTypography(
         colors = defaultHyunDaiCardDiveColors,
         typography = defaultHyunDaiCardDiveTypography
     ) {
