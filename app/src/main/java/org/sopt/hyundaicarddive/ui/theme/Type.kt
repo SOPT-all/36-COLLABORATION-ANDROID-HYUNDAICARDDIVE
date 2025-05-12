@@ -153,7 +153,7 @@ val defaultHyunDaiCardDiveTypography = HyunDaiCardDiveTypography(
         fontFamily = hyunDaiCardDiveFontMedium,
         fontSize = 10.sp,
         lineHeight = 15.sp,
-        letterSpacing = (-0.3).sp
+        letterSpacing = 0.sp
     ),
     ns_r_10 = TextStyle(
         fontFamily = hyunDaiCardDiveFontRegular,
