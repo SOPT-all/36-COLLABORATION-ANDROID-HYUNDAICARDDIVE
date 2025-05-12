@@ -45,7 +45,7 @@ data class HyunDaiCardDiveColors(
     val andSysWhite: Color,
     val pointRed: Color,
     val pointYellow: Color,
-    val pointGreen: Color,
+    val pointGreen: Color
 )
 
 val defaultHyunDaiCardDiveColors = HyunDaiCardDiveColors(
@@ -63,7 +63,7 @@ val defaultHyunDaiCardDiveColors = HyunDaiCardDiveColors(
     andSysWhite = AndSysWhite,
     pointRed = PointRed,
     pointYellow = PointYellow,
-    pointGreen = PointGreen,
+    pointGreen = PointGreen
 )
 
 val LocalHyunDaiCardDiveColorsProvider = staticCompositionLocalOf { defaultHyunDaiCardDiveColors }
