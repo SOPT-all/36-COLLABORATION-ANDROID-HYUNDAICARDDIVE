@@ -9,7 +9,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-object HyunDaiCardDiveTheme {
+object HYUNDAICARDDIVETheme {
     val colors: HyunDaiCardDiveColors
         @Composable
         @ReadOnlyComposable
@@ -35,7 +35,7 @@ fun ProvideHyunDaiCardDiveColorsAndTypography(
 }
 
 @Composable
-fun HyunDaiCardDiveTheme(
+fun HYUNDAICARDDIVETheme(
     content: @Composable () -> Unit
 ) {
     ProvideHyunDaiCardDiveColorsAndTypography(
