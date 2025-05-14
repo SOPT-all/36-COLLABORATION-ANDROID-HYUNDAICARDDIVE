@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HYUNDAICARDDIVE</string>
+
+    <!-- Detail -->
+    <string name="detail_address_title">주소ㅤㅤ</string>
+    <string name="detail_time_title">운영시간</string>
 </resources>
