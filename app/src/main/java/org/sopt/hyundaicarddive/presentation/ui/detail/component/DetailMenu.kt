@@ -32,7 +32,10 @@ enum class DetailMenuItem(
 fun DetailMenu() {
     Row(
         modifier = Modifier
-            .padding(horizontal = 16.dp)
+            .padding(
+                horizontal = 16.dp,
+                vertical = 12.dp
+            )
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
