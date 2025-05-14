@@ -25,7 +25,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 @Composable
 fun SpaceAndCultureSectionHeader(
     title: String,
-    description: String,
+    description: String?,
     modifier: Modifier = Modifier,
     hasMoreContent: Boolean = false
 ) {
@@ -41,12 +41,14 @@ fun SpaceAndCultureSectionHeader(
                 style = HYUNDAICARDDIVETheme.typography.uni_20,
                 color = HYUNDAICARDDIVETheme.colors.black
             )
-            Spacer(modifier = Modifier.width(10.dp))
-            Text(
-                text = description,
-                style = HYUNDAICARDDIVETheme.typography.ns_m_12_22,
-                color = HYUNDAICARDDIVETheme.colors.gray5
-            )
+            description?.let {
+                Spacer(modifier = Modifier.width(10.dp))
+                Text(
+                    text = description,
+                    style = HYUNDAICARDDIVETheme.typography.ns_m_12_22,
+                    color = HYUNDAICARDDIVETheme.colors.gray5
+                )
+            }
             Spacer(
                 modifier = Modifier.weight(1f)
             )
