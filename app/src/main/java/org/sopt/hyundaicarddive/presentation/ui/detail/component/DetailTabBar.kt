@@ -60,6 +60,6 @@ private fun DetailTabBarItem(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewDetailMenu() {
+private fun PreviewDetailTabBar() {
     DetailTabBar()
 }

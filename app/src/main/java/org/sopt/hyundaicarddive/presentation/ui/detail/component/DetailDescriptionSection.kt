@@ -14,7 +14,7 @@ import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
-fun DetailInfo(
+fun DetailDescriptionSection(
     title: String,
     content: String,
     modifier: Modifier = Modifier
@@ -42,7 +42,7 @@ fun DetailInfo(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewDetailInfo() {
-    DetailInfo(
+    DetailDescriptionSection(
         title = stringResource(R.string.detail_address_title),
         content = "내용"
     )
