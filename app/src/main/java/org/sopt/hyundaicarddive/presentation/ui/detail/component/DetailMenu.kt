@@ -12,8 +12,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.hyundaicarddive.R
@@ -46,7 +48,7 @@ enum class DetailMenuItem(
 }
 
 @Composable
-fun DetailMenu() {
+fun DetailTabBar() {
     Row(
         modifier = Modifier
             .padding(
@@ -58,27 +60,27 @@ fun DetailMenu() {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         DetailMenuItem.entries.forEach { menu ->
-            DetailMenuItem(menu)
+            DetailTabBarItem(menu)
         }
     }
 }
 
 @Composable
-fun DetailMenuItem(
-    menu: DetailMenuItem
+private fun DetailTabBarItem(
+    item: DetailMenuItem
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(id = menu.iconRes),
-            contentDescription = stringResource(id = menu.stringRes),
+            imageVector = ImageVector.vectorResource(id = item.iconRes),
+            contentDescription = stringResource(id = item.stringRes),
             modifier = Modifier
                 .padding(bottom = 11.dp)
         )
 
         Text(
-            text = stringResource(id = menu.stringRes),
+            text = stringResource(id = item.stringRes),
             color = HYUNDAICARDDIVETheme.colors.black,
             style = HYUNDAICARDDIVETheme.typography.ns_m_10
         )
@@ -88,5 +90,5 @@ fun DetailMenuItem(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewDetailMenu() {
-    DetailMenu()
+    DetailTabBar()
 }
