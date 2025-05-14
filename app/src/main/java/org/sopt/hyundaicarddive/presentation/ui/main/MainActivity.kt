@@ -13,8 +13,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            val navigator: MainNavigator = rememberMainNavigator()
             HYUNDAICARDDIVETheme {
-                MainScreen()
+                MainScreen(navigator = navigator)
             }
         }
     }
