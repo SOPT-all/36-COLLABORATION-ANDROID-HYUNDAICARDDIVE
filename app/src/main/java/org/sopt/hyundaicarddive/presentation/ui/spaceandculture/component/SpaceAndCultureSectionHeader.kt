@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -15,7 +14,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -29,11 +27,11 @@ fun SpaceAndCultureSectionHeader(
     title: String,
     description: String,
     modifier: Modifier = Modifier,
-    hasMoreContent: Boolean = false,
+    hasMoreContent: Boolean = false
 ) {
     Column(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically
@@ -41,13 +39,13 @@ fun SpaceAndCultureSectionHeader(
             Text(
                 text = title,
                 style = HYUNDAICARDDIVETheme.typography.uni_20,
-                color = HYUNDAICARDDIVETheme.colors.black,
+                color = HYUNDAICARDDIVETheme.colors.black
             )
             Spacer(modifier = Modifier.width(10.dp))
             Text(
                 text = description,
                 style = HYUNDAICARDDIVETheme.typography.ns_m_12_22,
-                color = HYUNDAICARDDIVETheme.colors.gray5,
+                color = HYUNDAICARDDIVETheme.colors.gray5
             )
             Spacer(
                 modifier = Modifier.weight(1f)
@@ -57,7 +55,7 @@ fun SpaceAndCultureSectionHeader(
                     imageVector = ImageVector.vectorResource(R.drawable.ic_spaceculture_btn_space_more),
                     contentDescription = stringResource(R.string.spaceandculture_section_header_btn_space_more),
                     modifier = Modifier
-                        .size(width = 48.dp, height = 22.dp),
+                        .size(width = 48.dp, height = 22.dp)
                 )
             }
         }

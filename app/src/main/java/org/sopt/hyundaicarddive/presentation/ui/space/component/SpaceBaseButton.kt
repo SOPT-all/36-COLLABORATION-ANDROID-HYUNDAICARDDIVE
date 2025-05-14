@@ -16,7 +16,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 fun SpaceBaseButton(
     text: String,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit = {},
+    onClick: () -> Unit = {}
 ) {
     OutlinedButton(
         onClick = onClick,
@@ -24,7 +24,7 @@ fun SpaceBaseButton(
             .size(width = 320.dp, height = 48.dp)
             .background(HYUNDAICARDDIVETheme.colors.white),
         border = BorderStroke(1.dp, HYUNDAICARDDIVETheme.colors.gray1),
-        shape = RoundedCornerShape(3.dp),
+        shape = RoundedCornerShape(3.dp)
     ) {
         Text(
             text = text,
