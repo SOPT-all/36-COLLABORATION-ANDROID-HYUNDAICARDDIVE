@@ -1,5 +1,7 @@
 package org.sopt.hyundaicarddive.presentation.ui.detail.component
 
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,14 +20,29 @@ import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 enum class DetailMenuItem(
-    val iconRes: Int,
-    val stringRes: Int
+    @DrawableRes val iconRes: Int,
+    @StringRes val stringRes: Int
 ) {
-    SPACE(R.drawable.ic_spacedetail_space_28, R.string.detail_menu_space_title),
-    BOOKSEARCH(R.drawable.ic_spacedetail_booksearch_28, R.string.detail_menu_book_search_title),
-    RESERVATION(R.drawable.ic_spacedetail_reservation_28, R.string.detail_menu_reservation_title),
-    REVIEW(R.drawable.ic_spacedetail_review_28, R.string.detail_menu_review_title),
-    BOOK(R.drawable.ic_spacedetail_book_28, R.string.detail_menu_book_title)
+    SPACE(
+        iconRes = R.drawable.ic_spacedetail_space_28,
+        stringRes = R.string.detail_menu_space_title
+    ),
+    BOOKSEARCH(
+        iconRes = R.drawable.ic_spacedetail_booksearch_28,
+        stringRes = R.string.detail_menu_book_search_title
+    ),
+    RESERVATION(
+        iconRes = R.drawable.ic_spacedetail_reservation_28,
+        stringRes = R.string.detail_menu_reservation_title
+    ),
+    REVIEW(
+        iconRes = R.drawable.ic_spacedetail_review_28,
+        stringRes = R.string.detail_menu_review_title
+    ),
+    BOOK(
+        iconRes = R.drawable.ic_spacedetail_book_28,
+        stringRes = R.string.detail_menu_book_title
+    )
 }
 
 @Composable
