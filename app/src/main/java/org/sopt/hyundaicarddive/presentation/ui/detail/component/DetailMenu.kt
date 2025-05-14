@@ -25,7 +25,7 @@ enum class DetailMenuItem(
     BOOKSEARCH(R.drawable.ic_spacedetail_booksearch_28, R.string.detail_menu_book_search_title),
     RESERVATION(R.drawable.ic_spacedetail_reservation_28, R.string.detail_menu_reservation_title),
     REVIEW(R.drawable.ic_spacedetail_review_28, R.string.detail_menu_review_title),
-    BOOK(R.drawable.ic_spacedetail_book_28, R.string.detail_menu_book_title),
+    BOOK(R.drawable.ic_spacedetail_book_28, R.string.detail_menu_book_title)
 }
 
 @Composable
@@ -35,7 +35,7 @@ fun DetailMenu() {
             .padding(horizontal = 16.dp)
             .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         DetailMenuItem.entries.forEach { menu ->
             DetailMenuItem(menu)
@@ -52,7 +52,7 @@ fun DetailMenuItem(
     ) {
         Image(
             painter = painterResource(id = menu.iconRes),
-            contentDescription = stringResource(id = menu.stringRes),
+            contentDescription = stringResource(id = menu.stringRes)
         )
 
         Text(
