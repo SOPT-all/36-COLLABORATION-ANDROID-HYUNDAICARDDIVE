@@ -8,11 +8,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 
@@ -29,7 +25,7 @@ fun MainScreen(
 @Composable
 private fun MainScreenContent(
     modifier: Modifier = Modifier,
-    navigator: MainNavigator,
+    navigator: MainNavigator
 ) {
     Scaffold(
         modifier = modifier

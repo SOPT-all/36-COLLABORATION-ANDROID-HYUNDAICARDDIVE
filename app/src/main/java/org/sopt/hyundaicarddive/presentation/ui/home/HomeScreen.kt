@@ -3,7 +3,6 @@ package org.sopt.hyundaicarddive.presentation.ui.home
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 

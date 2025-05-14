@@ -2,18 +2,21 @@ package org.sopt.hyundaicarddive.core.navigation
 
 import kotlinx.serialization.Serializable
 
-sealed interface MainTabRoute{
+sealed interface MainTabRoute {
     @Serializable
-    data object Home: MainTabRoute
+    data object Home : MainTabRoute
+
     @Serializable
-    data object SpaceAndCulture: MainTabRoute
+    data object SpaceAndCulture : MainTabRoute
+
     @Serializable
-    data object My: MainTabRoute
+    data object My : MainTabRoute
 }
 
-sealed interface SpaceAndCultureRoute{
+sealed interface SpaceAndCultureRoute {
     @Serializable
-    data object Detail: SpaceAndCultureRoute
+    data object Detail : SpaceAndCultureRoute
+
     @Serializable
-    data object Space: SpaceAndCultureRoute
+    data object Space : SpaceAndCultureRoute
 }

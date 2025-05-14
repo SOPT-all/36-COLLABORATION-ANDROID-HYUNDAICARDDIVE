@@ -9,7 +9,7 @@ enum class MainTab(
     @DrawableRes val defaultIconResId: Int,
     @DrawableRes val selectedIconResId: Int,
     val route: MainTabRoute
-){
+) {
     HOME(
         defaultIconResId = R.drawable.ic_navi_home_gray_36,
         selectedIconResId = R.drawable.ic_navi_home_fill_black_36,
