@@ -55,7 +55,9 @@ fun DetailMenuItem(
     ) {
         Image(
             painter = painterResource(id = menu.iconRes),
-            contentDescription = stringResource(id = menu.stringRes)
+            contentDescription = stringResource(id = menu.stringRes),
+            modifier = Modifier
+                .padding(bottom = 11.dp)
         )
 
         Text(
