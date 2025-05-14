@@ -63,7 +63,7 @@ fun DetailMenuItem(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun PreviewDetailMenu() {
     DetailMenu()

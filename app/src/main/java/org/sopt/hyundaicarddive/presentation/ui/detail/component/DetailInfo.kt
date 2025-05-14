@@ -26,20 +26,20 @@ fun SpaceAndCultureDetailInfo(
         Text(
             text = title,
             modifier = Modifier.padding(end = 25.dp),
-            color = HYUNDAICARDDIVETheme.colors.white,
+            color = HYUNDAICARDDIVETheme.colors.black,
             style = HYUNDAICARDDIVETheme.typography.ns_sb_12
         )
 
         Text(
             text = content,
             modifier = Modifier.fillMaxWidth(),
-            color = HYUNDAICARDDIVETheme.colors.white,
+            color = HYUNDAICARDDIVETheme.colors.black,
             style = HYUNDAICARDDIVETheme.typography.ns_r_12
         )
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun PreviewSpaceAndCultureDetailInfo() {
     SpaceAndCultureDetailInfo(
