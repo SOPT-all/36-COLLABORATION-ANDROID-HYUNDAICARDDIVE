@@ -1,4 +1,4 @@
-package org.sopt.hyundaicarddive.presentation.ui.home
+package org.sopt.hyundaicarddive.presentation.ui.space
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material3.Text
@@ -7,23 +7,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
-fun HomeRoute(
+fun SpaceRoute(
     padding: PaddingValues
 ) {
-    HomeScreen(padding = padding)
+    SpaceScreen(padding = padding)
 }
 
 @Composable
-private fun HomeScreen(
+private fun SpaceScreen(
     padding: PaddingValues
 ) {
-    Text("HomeScreen")
+    Text("SpaceScreen")
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun PreviewHomeScreen() {
     HYUNDAICARDDIVETheme {
-        HomeScreen(padding = PaddingValues())
+        SpaceScreen(padding = PaddingValues())
     }
 }
