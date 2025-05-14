@@ -14,7 +14,7 @@ import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
-fun SpaceAndCultureDetailInfo(
+fun DetailInfo(
     title: String,
     content: String,
     modifier: Modifier = Modifier
@@ -41,8 +41,8 @@ fun SpaceAndCultureDetailInfo(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewSpaceAndCultureDetailInfo() {
-    SpaceAndCultureDetailInfo(
+private fun PreviewDetailInfo() {
+    DetailInfo(
         title = stringResource(R.string.detail_address_title),
         content = "내용"
     )
