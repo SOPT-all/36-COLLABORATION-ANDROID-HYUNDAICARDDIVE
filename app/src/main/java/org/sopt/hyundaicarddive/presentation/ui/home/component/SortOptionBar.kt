@@ -54,7 +54,7 @@ fun SortOptionBar(
             if (index == 0){
                 VerticalDivider(
                     thickness = 1.dp,
-                    color = colors.gray4,
+                    color = colors.gray3,
                     modifier = Modifier
                         .height(18.dp)
                         .padding(horizontal = 22.dp)
