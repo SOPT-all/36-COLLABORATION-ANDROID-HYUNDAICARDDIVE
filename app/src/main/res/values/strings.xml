@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">HYUNDAICARDDIVE</string>
 
+  
+    <!-- SpaceAndCulture -->
+    <string name="spaceandculture_header_whatson_title">What\'s on</string>
+    <string name="spaceandculture_header_space_title">Space</string>
+    <string name="spaceandculture_header_culture_title">Culture</string>
+    <string name="spaceandculture_header_space_description">현대카드만의 특별한 공간</string>
+    <string name="spaceandculture_header_culture_description">현대카드만의 특별한 문화</string>
+    <string name="spaceandculture_header_btn_space_more">컨텐츠 더보기</string>
+
+  
     <!-- Detail -->
     <string name="detail_address_title">주소ㅤㅤ</string>
     <string name="detail_time_title">운영시간</string>
