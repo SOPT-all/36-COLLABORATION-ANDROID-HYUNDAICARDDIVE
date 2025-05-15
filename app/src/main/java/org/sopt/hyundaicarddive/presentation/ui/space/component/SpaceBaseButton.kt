@@ -2,7 +2,9 @@ package org.sopt.hyundaicarddive.presentation.ui.space.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -11,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
+import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
+import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun SpaceBaseButton(
@@ -21,22 +25,26 @@ fun SpaceBaseButton(
     OutlinedButton(
         onClick = onClick,
         modifier = modifier
-            .size(width = 320.dp, height = 48.dp)
-            .background(HYUNDAICARDDIVETheme.colors.white),
-        border = BorderStroke(1.dp, HYUNDAICARDDIVETheme.colors.gray1),
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .padding(horizontal = 20.dp)
+            .background(colors.white),
+        border = BorderStroke(1.dp, colors.gray1),
         shape = RoundedCornerShape(3.dp)
     ) {
         Text(
             text = text,
-            color = HYUNDAICARDDIVETheme.colors.black,
-            style = HYUNDAICARDDIVETheme.typography.ns_sb_14
+            modifier = Modifier
+                .padding(vertical = 14.dp),
+            color = colors.black,
+            style = typography.ns_sb_14
         )
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-private fun Preview() {
+private fun SpaceBaseButtonPreview() {
     HYUNDAICARDDIVETheme {
         SpaceBaseButton("보유 도서 검색하기")
     }
