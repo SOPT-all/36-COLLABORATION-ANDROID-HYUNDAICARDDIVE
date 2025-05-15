@@ -64,9 +64,9 @@ fun SortOptionBar(
         Spacer(modifier = Modifier.weight(1f))
 
         Icon(
-            imageVector = ImageVector.vectorResource(id = R.drawable.ic_spacedetail_booksearch_28),
+            imageVector = ImageVector.vectorResource(id = R.drawable.ic_home_search_40),
             contentDescription = null,
-            tint = colors.gray5
+            tint = colors.black
         )
     }
 }
