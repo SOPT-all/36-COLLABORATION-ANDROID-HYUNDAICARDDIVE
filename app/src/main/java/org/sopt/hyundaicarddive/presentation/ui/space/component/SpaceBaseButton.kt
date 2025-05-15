@@ -2,9 +2,9 @@ package org.sopt.hyundaicarddive.presentation.ui.space.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -19,15 +19,15 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 @Composable
 fun SpaceBaseButton(
     text: String,
+    paddingValues: PaddingValues,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit = {}
+    onClick: () -> Unit = {},
 ) {
     OutlinedButton(
         onClick = onClick,
         modifier = modifier
             .fillMaxWidth()
-            .wrapContentHeight()
-            .padding(horizontal = 20.dp)
+            .padding(paddingValues)
             .background(colors.white),
         border = BorderStroke(1.dp, colors.gray1),
         shape = RoundedCornerShape(3.dp)
@@ -46,6 +46,6 @@ fun SpaceBaseButton(
 @Composable
 private fun SpaceBaseButtonPreview() {
     HYUNDAICARDDIVETheme {
-        SpaceBaseButton("보유 도서 검색하기")
+        SpaceBaseButton("보유 도서 검색하기", PaddingValues(horizontal = 20.dp))
     }
 }
