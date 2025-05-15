@@ -1,8 +1,8 @@
 package org.sopt.hyundaicarddive.presentation.type
 
-enum class SortOptionType (
+enum class SortOptionType(
     val description: String
-){
+) {
     RECOMMENDED(
         description = "추천"
     ),

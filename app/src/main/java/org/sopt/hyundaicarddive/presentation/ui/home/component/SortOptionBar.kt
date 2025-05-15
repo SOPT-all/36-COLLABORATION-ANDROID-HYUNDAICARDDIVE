@@ -51,7 +51,7 @@ fun SortOptionBar(
                 modifier = Modifier.noRippleClickable { onIndexSelected(index) }
             )
 
-            if (index == 0){
+            if (index == 0) {
                 VerticalDivider(
                     thickness = 1.dp,
                     color = colors.gray3,
@@ -78,7 +78,7 @@ private fun PreviewSortOptionBar() {
         var selectedIndex by remember { mutableIntStateOf(0) }
         SortOptionBar(
             selectedIndex = selectedIndex,
-            onIndexSelected = {selectedIndex = it}
+            onIndexSelected = { selectedIndex = it }
         )
     }
 }

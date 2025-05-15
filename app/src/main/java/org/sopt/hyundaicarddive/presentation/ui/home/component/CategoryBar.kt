@@ -99,7 +99,7 @@ private fun PreviewCategoryBar() {
         var selectedIndex by remember { mutableIntStateOf(0) }
         CategoryBar(
             selectedIndex = selectedIndex,
-            onIndexSelected = {selectedIndex = it}
+            onIndexSelected = { selectedIndex = it }
         )
     }
 }
