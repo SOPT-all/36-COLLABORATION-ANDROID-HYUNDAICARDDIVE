@@ -21,7 +21,7 @@ fun SpaceBaseButton(
     text: String,
     paddingValues: PaddingValues,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit = {},
+    onClick: () -> Unit = {}
 ) {
     OutlinedButton(
         onClick = onClick,

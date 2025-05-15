@@ -32,7 +32,7 @@ fun SpaceAndCultureHeader(
     description: String?,
     paddingValues: PaddingValues,
     modifier: Modifier = Modifier,
-    hasMoreContent: Boolean = false,
+    hasMoreContent: Boolean = false
 ) {
     Column(
         modifier = modifier
