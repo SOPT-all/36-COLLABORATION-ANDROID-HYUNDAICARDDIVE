@@ -23,6 +23,8 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -31,9 +33,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
+import org.sopt.hyundaicarddive.presentation.model.DetailArticleModel
+import org.sopt.hyundaicarddive.presentation.model.DetailModel
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
 import org.sopt.hyundaicarddive.presentation.ui.detail.component.DetailDescriptionSection
 import org.sopt.hyundaicarddive.presentation.ui.detail.component.DetailTabBar
@@ -44,12 +50,21 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 @Composable
 fun DetailRoute(
     padding: PaddingValues,
-    navigateToSpace: () -> Unit
+    navigateToSpace: () -> Unit,
+    viewModel: DetailViewModel = hiltViewModel()
 ) {
-    val pagerState = rememberPagerState(pageCount = { 4 })
+    LaunchedEffect(Unit) {
+        viewModel.getDetail()
+    }
+    val detailModel by viewModel.detailModel.collectAsStateWithLifecycle()
+    val articleListSize by viewModel.articleListSize.collectAsStateWithLifecycle()
+
+    val pagerState = rememberPagerState(pageCount = { articleListSize })
+
 
     DetailScreen(
         pagerState = pagerState,
+        detailModel = detailModel,
         modifier = Modifier.padding(padding),
         navigateToSpace = navigateToSpace
     )
@@ -58,6 +73,7 @@ fun DetailRoute(
 @Composable
 private fun DetailScreen(
     pagerState: PagerState,
+    detailModel: DetailModel?,
     modifier: Modifier = Modifier,
     navigateToSpace: () -> Unit
 ) {
@@ -89,13 +105,13 @@ private fun DetailScreen(
 
             DetailDescriptionSection(
                 title = stringResource(R.string.detail_tab_bar_address_title),
-                content = stringResource(R.string.detail_tab_bar_address_content),
+                content = detailModel?.address.orEmpty(),
                 modifier = Modifier.padding(top = 13.dp)
             )
 
             DetailDescriptionSection(
                 title = stringResource(R.string.detail_tab_bar_time_title),
-                content = stringResource(R.string.detail_tab_bar_time_content),
+                content = detailModel?.operationTime.orEmpty(),
                 modifier = Modifier.padding(top = 3.dp)
             )
         }
@@ -136,39 +152,41 @@ private fun DetailScreen(
             HorizontalPager(
                 state = pagerState,
             ) {
-                Box {
-                    AsyncImage(
-                        model = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400",
-                        contentDescription = null,
-                        modifier = Modifier
-                            .fillMaxWidth(),
-                        contentScale = ContentScale.Crop
-                    )
-
-                    Column(
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .padding(start = 24.dp, bottom = 42.dp)
-                    ) {
-                        Text(
-                            text = "1",
-                            color = colors.white,
-                            style = typography.ns_sb_20
+                detailModel?.articleList?.getOrNull(it)?.let { article ->
+                    Box {
+                        AsyncImage(
+                            model = article.imageUrl,
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxWidth(),
+                            contentScale = ContentScale.Crop
                         )
 
-                        Text(
-                            text = "1",
-                            modifier = Modifier.padding(top = 2.dp),
-                            color = colors.white,
-                            style = typography.ns_sb_14
-                        )
+                        Column(
+                            modifier = Modifier
+                                .align(Alignment.BottomStart)
+                                .padding(start = 24.dp, bottom = 42.dp)
+                        ) {
+                            Text(
+                                text = article.title,
+                                color = colors.white,
+                                style = typography.ns_sb_20
+                            )
 
-                        Text(
-                            text = "1",
-                            modifier = Modifier.padding(top = 7.dp),
-                            color = colors.white,
-                            style = typography.ns_sb_14
-                        )
+                            Text(
+                                text = article.subTitle,
+                                modifier = Modifier.padding(top = 2.dp),
+                                color = colors.white,
+                                style = typography.ns_sb_14
+                            )
+
+                            Text(
+                                text = article.date,
+                                modifier = Modifier.padding(top = 7.dp),
+                                color = colors.white,
+                                style = typography.ns_sb_14
+                            )
+                        }
                     }
                 }
             }
@@ -204,6 +222,36 @@ private fun PreviewDetailScreen() {
                 pageCount = {
                     4
                 }
+            ),
+            detailModel = DetailModel(
+                address = "서울시 종로구 북촌로 31-18",
+                operationTime = "화~토 12~21시 / 일, 공휴일 12~18시 (설, 추석 연휴 휴관)",
+                articleList = listOf(
+                    DetailArticleModel(
+                        imageUrl = "https://github.com/user-attachments/assets/947c4c77-5313-4aee-9a0a-031ecff323b7",
+                        title = "경계선을 넘나드는 사진가",
+                        subTitle = "4월의 디자이너, 다이안 아버스",
+                        date = "2025.04.14"
+                    ),
+                    DetailArticleModel(
+                        imageUrl = "https://github.com/user-attachments/assets/c49dfb51-fe48-4822-abe0-53647c47d480",
+                        title = "가장 창의적인 시대의 표상",
+                        subTitle = "디자인 라이브러리 전권 보유 컬렉션",
+                        date = "2025.03.18"
+                    ),
+                    DetailArticleModel(
+                        imageUrl = "https://github.com/user-attachments/assets/58d587a3-f902-4a90-bc2a-29b0763b8cda",
+                        title = "한국의 디자인 역사를 품다",
+                        subTitle = "월간 <디자인> 전권 보유 컬렉션 구축",
+                        date = "2025.05.13"
+                    ),
+                    DetailArticleModel(
+                        imageUrl = "https://github.com/user-attachments/assets/f61a44c8-ec7c-4462-8c98-1c4f3fd82606",
+                        title = "초록의 물결",
+                        subTitle = "현대카드 라이브러리 5월의 새 책",
+                        date = "2025.05.06"
+                    )
+                )
             ),
             modifier = Modifier,
             navigateToSpace = {}
