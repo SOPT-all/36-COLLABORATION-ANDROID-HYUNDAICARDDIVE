@@ -1,7 +1,10 @@
 package org.sopt.hyundaicarddive.presentation.ui.home
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -20,6 +23,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 
 @Composable
 fun HomeRoute(
+    padding: PaddingValues,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val selectedOption by viewModel.selectedOption.collectAsStateWithLifecycle()
@@ -29,7 +33,8 @@ fun HomeRoute(
         selectedOption = selectedOption,
         onOptionSelected = { viewModel.onOptionSelected(it) },
         selectedCategory = selectedCategory,
-        onCategorySelected = { viewModel.onCategorySelected(it) }
+        onCategorySelected = { viewModel.onCategorySelected(it) },
+        modifier = Modifier.padding(padding)
     )
 }
 
@@ -38,20 +43,15 @@ private fun HomeScreen(
     selectedOption: Int,
     onOptionSelected: (Int) -> Unit,
     selectedCategory: Int,
-    onCategorySelected: (Int) -> Unit
+    onCategorySelected: (Int) -> Unit,
+    modifier: Modifier = Modifier
 ) {
-    Scaffold(
-        topBar = {
-            TopBar(
-                topBarType = TopBarType.HOME
-            )
-        },
-        containerColor = colors.white,
-        contentWindowInsets = WindowInsets(0.dp, 0.dp, 0.dp, 0.dp)
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier.padding(innerPadding)
-        ) {
+    Box(
+        modifier = modifier.fillMaxSize()
+    ){
+        Column {
+            TopBar(topBarType = TopBarType.HOME)
+
             SortOptionBar(
                 selectedIndex = selectedOption,
                 onIndexSelected = onOptionSelected
@@ -61,6 +61,7 @@ private fun HomeScreen(
                 selectedIndex = selectedCategory,
                 onIndexSelected = onCategorySelected
             )
+
         }
     }
 }
