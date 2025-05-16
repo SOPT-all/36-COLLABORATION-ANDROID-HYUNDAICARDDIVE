@@ -105,6 +105,21 @@ fun WhatsOnItem(
                         color = colors.gray3,
                         style = typography.ns_m_10,
                     )
+                    if (whatsOnListModel.isReservable) {
+                        VerticalDivider(
+                            thickness = 1.dp,
+                            color = colors.gray3,
+                            modifier = Modifier
+                                .height(11.dp)
+                                .padding(horizontal = 8.dp)
+                        )
+                        Text(
+                            text = "예매",
+                            color = colors.pointGreen,
+                            style = typography.ns_m_10,
+                        )
+                    }
+
                 }
                 if(!isLast){
                     Spacer(modifier = Modifier.height(40.dp))
