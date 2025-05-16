@@ -13,6 +13,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.hyundaicarddive.core.component.TopBar
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
+import org.sopt.hyundaicarddive.presentation.ui.home.component.CategoryBar
 import org.sopt.hyundaicarddive.presentation.ui.home.component.SortOptionBar
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
@@ -22,16 +23,22 @@ fun HomeRoute(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val selectedOption by viewModel.selectedOption.collectAsStateWithLifecycle()
+    val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
+
     HomeScreen(
         selectedOption = selectedOption,
-        onOptionSelected = { viewModel.onOptionSelected(it) }
+        onOptionSelected = { viewModel.onOptionSelected(it) },
+        selectedCategory = selectedCategory,
+        onCategorySelected = { viewModel.onCategorySelected(it) }
     )
 }
 
 @Composable
 private fun HomeScreen(
     selectedOption: Int,
-    onOptionSelected: (Int) -> Unit
+    onOptionSelected: (Int) -> Unit,
+    selectedCategory: Int,
+    onCategorySelected: (Int) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -49,6 +56,11 @@ private fun HomeScreen(
                 selectedIndex = selectedOption,
                 onIndexSelected = onOptionSelected
             )
+
+            CategoryBar(
+                selectedIndex = selectedCategory,
+                onIndexSelected = onCategorySelected
+            )
         }
     }
 }
@@ -59,7 +71,9 @@ private fun PreviewHomeScreen() {
     HYUNDAICARDDIVETheme {
         HomeScreen(
             selectedOption = 0,
-            onOptionSelected = {}
+            onOptionSelected = {},
+            selectedCategory = 0,
+            onCategorySelected = {}
         )
     }
 }
