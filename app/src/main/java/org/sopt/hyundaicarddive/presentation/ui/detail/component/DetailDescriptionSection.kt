@@ -41,9 +41,9 @@ fun DetailDescriptionSection(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewDetailInfo() {
+private fun PreviewDetailDescriptionSection() {
     DetailDescriptionSection(
-        title = stringResource(R.string.detail_address_title),
-        content = "내용"
+        title = stringResource(R.string.detail_tab_bar_address_title),
+        content = stringResource(R.string.detail_tab_bar_address_content)
     )
 }
