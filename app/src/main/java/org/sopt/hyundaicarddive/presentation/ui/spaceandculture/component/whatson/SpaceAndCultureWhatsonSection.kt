@@ -28,18 +28,12 @@ fun SpaceAndCultureWhatsOnSection(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        WhatsOnListItem(
-            whatsOnListModel = whatsOnList[0],
-        )
-
-        WhatsOnListItem(
-            whatsOnListModel = whatsOnList[1],
-        )
-
-        WhatsOnListItem(
-            whatsOnListModel = whatsOnList[2],
-            isLast = true,
-        )
+        whatsOnList.forEachIndexed { index, item ->
+            WhatsOnListItem(
+                whatsOnListModel = item,
+                isLast = index == whatsOnList.lastIndex
+            )
+        }
     }
 }
 
@@ -56,7 +50,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     "스토리지",
                     "이태원",
                     false,
-                    "https://github.com/user-attachments/assets/f35d50b8-0232-40d0-bcb3-bfb86c262c77",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
                 ),
                 WhatsOnListModel(
                     "05/23(금)",
@@ -65,7 +59,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     "스토리지",
                     "이태원",
                     true,
-                    "https://github.com/user-attachments/assets/eb4f2e4b-bb46-4c0a-b74e-17d648413a12",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
                 ),
                 WhatsOnListModel(
                     "05/23(금)",
@@ -74,7 +68,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     "스토리지",
                     "이태원",
                     true,
-                    "https://github.com/user-attachments/assets/eb4f2e4b-bb46-4c0a-b74e-17d648413a12",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
                 )
             )
         )
