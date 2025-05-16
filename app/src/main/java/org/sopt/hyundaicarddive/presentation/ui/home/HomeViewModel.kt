@@ -6,8 +6,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.sopt.hyundaicarddive.domain.usecase.DummyUseCase
+import org.sopt.hyundaicarddive.presentation.model.HomeListModel
 import org.sopt.hyundaicarddive.presentation.type.CategoryType
 import org.sopt.hyundaicarddive.presentation.type.SortOptionType
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,6 +24,66 @@ class HomeViewModel @Inject constructor(
 
     private val _changeListAlign = MutableStateFlow<Boolean>(false)
     val changeListAlign: StateFlow<Boolean> = _changeListAlign.asStateFlow()
+
+    private val _homeList = MutableStateFlow<List<HomeListModel>>(emptyList())
+    val homeList: StateFlow<List<HomeListModel>> = _homeList.asStateFlow()
+
+    val dummyItems: List<HomeListModel> = listOf(
+        HomeListModel(
+            category = "디자인·아트",
+            title = "영감을 주는 디자인",
+            hashTag = "#디자인 #창의력",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "건축·인테리어",
+            title = "미니멀한 공간 활용",
+            hashTag = "#건축 #인테리어",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250507/1456/P001492081.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "디자인·아트",
+            title = "영감을 주는 디자인",
+            hashTag = "#디자인 #창의력",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "건축·인테리어",
+            title = "미니멀한 공간 활용",
+            hashTag = "#건축 #인테리어",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250507/1456/P001492081.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "디자인·아트",
+            title = "영감을 주는 디자인",
+            hashTag = "#디자인 #창의력",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "건축·인테리어",
+            title = "미니멀한 공간 활용",
+            hashTag = "#건축 #인테리어",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250507/1456/P001492081.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "디자인·아트",
+            title = "영감을 주는 디자인",
+            hashTag = "#디자인 #창의력",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "건축·인테리어",
+            title = "미니멀한 공간 활용",
+            hashTag = "#건축 #인테리어",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250507/1456/P001492081.jpg/dims/resize/F_webp,400"
+        ),
+        HomeListModel(
+            category = "디자인·아트",
+            title = "영감을 주는 디자인",
+            hashTag = "#디자인 #창의력",
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400"
+        )
+    )
 
     fun onOptionSelected(index: Int){
         _selectedOption.value = index
@@ -56,5 +118,10 @@ class HomeViewModel @Inject constructor(
 
     fun onChangeListAlign(){
         _changeListAlign.value = !_changeListAlign.value
+    }
+
+    fun getHomeList(){
+        _homeList.value = dummyItems
+        Timber.tag("ㅋㅋㅋ").d("${homeList.value}")
     }
 }
