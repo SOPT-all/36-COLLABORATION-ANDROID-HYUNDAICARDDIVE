@@ -12,10 +12,8 @@ fun NavController.navigateToHome(navOptions: NavOptions) {
     navigate(MainTabRoute.Home, navOptions)
 }
 
-fun NavGraphBuilder.homeNavGraph(
-    padding: PaddingValues
-) {
+fun NavGraphBuilder.homeNavGraph() {
     composable<MainTabRoute.Home> {
-        HomeRoute(padding = padding)
+        HomeRoute()
     }
 }

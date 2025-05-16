@@ -1,29 +1,54 @@
 package org.sopt.hyundaicarddive.presentation.ui.home
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import org.sopt.hyundaicarddive.core.component.TopBar
+import org.sopt.hyundaicarddive.presentation.type.TopBarType
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
+import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 
 @Composable
 fun HomeRoute(
-    padding: PaddingValues
+    viewModel: HomeViewModel = hiltViewModel()
 ) {
-    HomeScreen(padding = padding)
+    HomeScreen(
+
+    )
 }
 
 @Composable
 private fun HomeScreen(
-    padding: PaddingValues
+
 ) {
-    Text("HomeScreen")
+    Scaffold(
+        topBar = {
+            TopBar(
+                topBarType = TopBarType.HOME
+            )
+        },
+        containerColor = colors.white,
+        contentWindowInsets = WindowInsets(0.dp, 0.dp, 0.dp, 0.dp)
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier.padding(innerPadding)
+        ) {
+
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun PreviewHomeScreen() {
     HYUNDAICARDDIVETheme {
-        HomeScreen(padding = PaddingValues())
+        HomeScreen()
     }
 }

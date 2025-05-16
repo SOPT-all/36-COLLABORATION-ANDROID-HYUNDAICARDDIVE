@@ -28,7 +28,7 @@ fun MainNavHost(
             navController = navigator.navController,
             startDestination = navigator.startDestination
         ) {
-            homeNavGraph(padding)
+            homeNavGraph()
             spaceAndCultureNavGraph(
                 padding = padding,
                 navController = navigator.navController
