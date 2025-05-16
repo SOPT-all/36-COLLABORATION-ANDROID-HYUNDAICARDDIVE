@@ -9,7 +9,6 @@ import org.sopt.hyundaicarddive.domain.usecase.DummyUseCase
 import org.sopt.hyundaicarddive.presentation.model.HomeListModel
 import org.sopt.hyundaicarddive.presentation.type.CategoryType
 import org.sopt.hyundaicarddive.presentation.type.SortOptionType
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
