@@ -52,8 +52,11 @@ fun CategoryBar(
         horizontalArrangement = Arrangement.spacedBy(10.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        item { Spacer(Modifier.width(30.dp)) }
         items(contentLists.size) { index ->
+            if (index == 0) {
+                Spacer(Modifier.width(30.dp))
+            }
+
             Box(
                 modifier = Modifier
                     .border(
@@ -81,8 +84,11 @@ fun CategoryBar(
                         )
                 )
             }
+
+            if (index == contentLists.size - 1) {
+                Spacer(Modifier.width(30.dp))
+            }
         }
-        item { Spacer(Modifier.width(30.dp)) }
     }
 }
 
