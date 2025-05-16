@@ -71,8 +71,8 @@ fun SpaceAndCultureHeader(
         Spacer(modifier = Modifier.height(8.dp))
 
         HorizontalDivider(
-            modifier = Modifier
-                .background(colors.black)
+            thickness = 1.dp,
+            color = colors.black,
         )
     }
 }
