@@ -1,17 +1,19 @@
 package org.sopt.hyundaicarddive.presentation.ui.home
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.hyundaicarddive.core.component.TopBar
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
+import org.sopt.hyundaicarddive.presentation.ui.home.component.SortOptionBar
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 
@@ -19,14 +21,17 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 fun HomeRoute(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
+    val selectedOption by viewModel.selectedOption.collectAsStateWithLifecycle()
     HomeScreen(
-
+        selectedOption = selectedOption,
+        onOptionSelected = { viewModel.onOptionSelected(it) }
     )
 }
 
 @Composable
 private fun HomeScreen(
-
+    selectedOption: Int,
+    onOptionSelected: (Int) -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -40,7 +45,10 @@ private fun HomeScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-
+            SortOptionBar(
+                selectedIndex = selectedOption,
+                onIndexSelected = onOptionSelected
+            )
         }
     }
 }
@@ -49,6 +57,9 @@ private fun HomeScreen(
 @Composable
 private fun PreviewHomeScreen() {
     HYUNDAICARDDIVETheme {
-        HomeScreen()
+        HomeScreen(
+            selectedOption = 0,
+            onOptionSelected = {}
+        )
     }
 }
