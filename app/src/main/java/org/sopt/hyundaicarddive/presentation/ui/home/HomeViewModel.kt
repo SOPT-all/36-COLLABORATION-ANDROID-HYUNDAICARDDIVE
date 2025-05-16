@@ -20,6 +20,9 @@ class HomeViewModel @Inject constructor(
     private val _selectedCategory = MutableStateFlow<Int>(0)
     val selectedCategory: StateFlow<Int> = _selectedCategory.asStateFlow()
 
+    private val _changeListAlign = MutableStateFlow<Boolean>(false)
+    val changeListAlign: StateFlow<Boolean> = _changeListAlign.asStateFlow()
+
     fun onOptionSelected(index: Int){
         _selectedOption.value = index
     }
@@ -49,5 +52,9 @@ class HomeViewModel @Inject constructor(
             8 -> CategoryType.SPECIAL.name.lowercase()
             else -> CategoryType.TOTAL.name.lowercase()
         }
+    }
+
+    fun onChangeListAlign(){
+        _changeListAlign.value = !_changeListAlign.value
     }
 }
