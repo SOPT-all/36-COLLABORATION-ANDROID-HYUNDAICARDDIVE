@@ -22,4 +22,5 @@
     <string name="detail_menu_review_title">방문 인증</string>
     <string name="detail_menu_book_title">신규 도서</string>
     <string name="detail_logo_description">시대를 초월한 디자인과의 조우</string>
+    <string name="detail_library_title">라이브러리 체크인</string>
 </resources>

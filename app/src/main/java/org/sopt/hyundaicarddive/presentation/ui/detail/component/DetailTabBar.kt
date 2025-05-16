@@ -19,9 +19,11 @@ import org.sopt.hyundaicarddive.presentation.type.DetailMenuItem
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
-fun DetailTabBar() {
+fun DetailTabBar(
+    modifier: Modifier = Modifier
+) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .padding(
                 horizontal = 16.dp,
                 vertical = 12.dp
