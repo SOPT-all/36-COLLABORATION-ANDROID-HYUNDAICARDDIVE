@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -36,8 +35,8 @@ fun WhatsOnItem(
 ) {
     Row(
         modifier = modifier
-            .padding(start = 26.dp, end = 24.dp)
             .height(IntrinsicSize.Min)
+            .padding(start = 26.dp, end = 24.dp)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
@@ -57,7 +56,7 @@ fun WhatsOnItem(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 8.dp),
+                .padding(start = 8.dp, bottom = if (!isLast) 40.dp else 0.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Column(
@@ -119,10 +118,6 @@ fun WhatsOnItem(
                             style = typography.ns_m_10,
                         )
                     }
-
-                }
-                if(!isLast){
-                    Spacer(modifier = Modifier.height(40.dp))
                 }
             }
             AsyncImage(
@@ -152,7 +147,7 @@ private fun PreviewWhatsOnItem() {
     HYUNDAICARDDIVETheme {
 
         WhatsOnItem(
-            whatsOnListModel = model
+            whatsOnListModel = model,
         )
     }
 }
