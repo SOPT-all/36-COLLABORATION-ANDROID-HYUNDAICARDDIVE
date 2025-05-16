@@ -9,15 +9,24 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import org.sopt.hyundaicarddive.R
+import org.sopt.hyundaicarddive.core.util.noRippleClickable
 import org.sopt.hyundaicarddive.presentation.model.HomeListModel
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
@@ -46,6 +55,8 @@ private fun HomeSlideList(
     homeListModel: HomeListModel,
     modifier: Modifier = Modifier
 ) {
+    var isBookMarked by remember { mutableStateOf(false) }
+
     Box(
         modifier = modifier
     ) {
@@ -57,6 +68,18 @@ private fun HomeSlideList(
                 .aspectRatio(300f / 416f)
                 .clip(RoundedCornerShape(10.dp)),
             contentScale = ContentScale.Crop
+        )
+
+        Icon(
+            imageVector = if (isBookMarked) ImageVector.vectorResource(R.drawable.ic_home_bookmark_fill_white_40) else ImageVector.vectorResource(R.drawable.ic_home_bookmark_white_40),
+            contentDescription = null,
+            tint = colors.white,
+            modifier = Modifier
+                .padding(top = 21.dp, end = 12.dp)
+                .align(Alignment.TopEnd)
+                .noRippleClickable {
+                    isBookMarked = !isBookMarked
+                }
         )
 
         Column(
