@@ -122,6 +122,5 @@ class HomeViewModel @Inject constructor(
 
     fun getHomeList() {
         _homeList.value = dummyItems
-        Timber.tag("ㅋㅋㅋ").d("${homeList.value}")
     }
 }
