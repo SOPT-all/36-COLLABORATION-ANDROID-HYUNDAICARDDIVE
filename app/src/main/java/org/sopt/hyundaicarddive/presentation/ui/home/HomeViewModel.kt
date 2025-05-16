@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val dummyUseCase: DummyUseCase
-) : ViewModel(){
+) : ViewModel() {
     private val _selectedOption = MutableStateFlow<Int>(0)
     val selectedOption: StateFlow<Int> = _selectedOption.asStateFlow()
 
@@ -85,24 +85,24 @@ class HomeViewModel @Inject constructor(
         )
     )
 
-    fun onOptionSelected(index: Int){
+    fun onOptionSelected(index: Int) {
         _selectedOption.value = index
     }
 
-    private fun mapIndexToOption(index: Int): String{
-        return when(index){
+    private fun mapIndexToOption(index: Int): String {
+        return when (index) {
             0 -> SortOptionType.RECOMMENDED.name.lowercase()
             1 -> SortOptionType.LATEST.name.lowercase()
             else -> SortOptionType.RECOMMENDED.name.lowercase()
         }
     }
 
-    fun onCategorySelected(index: Int){
+    fun onCategorySelected(index: Int) {
         _selectedCategory.value = index
     }
 
-    private fun mapIndexToCategory(index: Int): String{
-        return when(index){
+    private fun mapIndexToCategory(index: Int): String {
+        return when (index) {
             0 -> CategoryType.TOTAL.name.lowercase()
             1 -> CategoryType.DESIGN.name.lowercase()
             2 -> CategoryType.BUILDING.name.lowercase()
@@ -116,11 +116,11 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun onChangeListAlign(){
+    fun onChangeListAlign() {
         _changeListAlign.value = !_changeListAlign.value
     }
 
-    fun getHomeList(){
+    fun getHomeList() {
         _homeList.value = dummyItems
         Timber.tag("ㅋㅋㅋ").d("${homeList.value}")
     }

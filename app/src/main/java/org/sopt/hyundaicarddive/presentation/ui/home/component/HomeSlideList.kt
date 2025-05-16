@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +30,7 @@ fun HomeSlideListSection(
 ) {
     LazyColumn(
         modifier = modifier,
-        contentPadding = PaddingValues(0.dp),
+        contentPadding = PaddingValues(0.dp)
     ) {
         items(items.size) { index ->
             HomeSlideList(
