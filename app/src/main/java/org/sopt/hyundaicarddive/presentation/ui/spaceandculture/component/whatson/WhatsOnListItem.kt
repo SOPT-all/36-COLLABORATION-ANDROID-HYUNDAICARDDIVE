@@ -28,7 +28,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
-fun WhatsOnItem(
+fun WhatsOnListItem(
     whatsOnListModel: WhatsOnListModel,
     modifier: Modifier = Modifier,
     isLast: Boolean = false,
@@ -134,7 +134,7 @@ fun WhatsOnItem(
 
 @Preview(showBackground = true)
 @Composable
-private fun PreviewWhatsOnItem() {
+private fun PreviewWhatsOnListItem() {
     val model = WhatsOnListModel(
         date = "05/10(토) ~ 06/29(일)",
         title = "현대 회화의 새로운 서사",
@@ -146,7 +146,7 @@ private fun PreviewWhatsOnItem() {
     )
     HYUNDAICARDDIVETheme {
 
-        WhatsOnItem(
+        WhatsOnListItem(
             whatsOnListModel = model,
         )
     }
