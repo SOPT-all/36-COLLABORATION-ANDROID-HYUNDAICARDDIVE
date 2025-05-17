@@ -25,6 +25,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,6 +37,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
 import org.sopt.hyundaicarddive.presentation.model.DetailArticleModel
@@ -61,6 +64,20 @@ fun DetailRoute(
 
     val pagerState = rememberPagerState(pageCount = { articleListSize })
 
+    val pageCount = pagerState.pageCount
+    val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(pageCount) {
+        coroutineScope.launch {
+            if (pageCount > 1) {
+                while (true) {
+                    delay(4000L) // 4초 간격
+                    val nextPage = (pagerState.currentPage + 1) % pageCount
+                    pagerState.animateScrollToPage(nextPage)
+                }
+            }
+        }
+    }
 
     DetailScreen(
         pagerState = pagerState,
@@ -147,18 +164,22 @@ private fun DetailScreen(
         Box(
             modifier = Modifier
                 .padding(top = 40.dp)
+                .fillMaxWidth()
                 .aspectRatio(360f / 422f)
         ) {
             HorizontalPager(
                 state = pagerState,
+                modifier = Modifier.fillMaxSize()
             ) {
                 detailModel?.articleList?.getOrNull(it)?.let { article ->
-                    Box {
+                    Box(
+                        modifier = Modifier.fillMaxSize()
+                    ) {
                         AsyncImage(
                             model = article.imageUrl,
                             contentDescription = null,
                             modifier = Modifier
-                                .fillMaxWidth(),
+                                .fillMaxSize(),
                             contentScale = ContentScale.Crop
                         )
 
