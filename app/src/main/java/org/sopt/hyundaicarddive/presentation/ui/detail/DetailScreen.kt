@@ -29,14 +29,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.AsyncImage
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.sopt.hyundaicarddive.R
@@ -45,6 +43,7 @@ import org.sopt.hyundaicarddive.presentation.model.DetailArticleModel
 import org.sopt.hyundaicarddive.presentation.model.DetailModel
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
 import org.sopt.hyundaicarddive.presentation.ui.detail.component.DetailDescriptionSection
+import org.sopt.hyundaicarddive.presentation.ui.detail.component.DetailPager
 import org.sopt.hyundaicarddive.presentation.ui.detail.component.DetailTabBar
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
@@ -172,43 +171,7 @@ private fun DetailScreen(
                 modifier = Modifier.fillMaxSize()
             ) {
                 detailModel?.articleList?.getOrNull(it)?.let { article ->
-                    Box(
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        AsyncImage(
-                            model = article.imageUrl,
-                            contentDescription = null,
-                            modifier = Modifier
-                                .fillMaxSize(),
-                            contentScale = ContentScale.Crop
-                        )
-
-                        Column(
-                            modifier = Modifier
-                                .align(Alignment.BottomStart)
-                                .padding(start = 24.dp, bottom = 42.dp)
-                        ) {
-                            Text(
-                                text = article.title,
-                                color = colors.white,
-                                style = typography.ns_sb_20
-                            )
-
-                            Text(
-                                text = article.subTitle,
-                                modifier = Modifier.padding(top = 2.dp),
-                                color = colors.white,
-                                style = typography.ns_sb_14
-                            )
-
-                            Text(
-                                text = article.date,
-                                modifier = Modifier.padding(top = 7.dp),
-                                color = colors.white,
-                                style = typography.ns_sb_14
-                            )
-                        }
-                    }
+                    DetailPager(article = article)
                 }
             }
 
