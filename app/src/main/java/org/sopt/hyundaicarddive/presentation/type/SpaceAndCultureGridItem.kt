@@ -6,7 +6,7 @@ import org.sopt.hyundaicarddive.R
 
 enum class SpaceAndCultureGridItem(
     @StringRes val description: Int,
-    @DrawableRes val logoResId: Int,
+    @DrawableRes val logoResId: Int
 ) {
     SPACE_DESIGNLIB(
         description = R.string.spaceandculture_space_card_designlib,
@@ -50,26 +50,26 @@ enum class SpaceAndCultureGridItem(
     ),
     CULTURE_SUPER(
         R.string.spaceandculture_culture_card_super,
-        R.drawable.img_culture_logo_super,
+        R.drawable.img_culture_logo_super
     ),
     CULTURE_CULTURE(
         R.string.spaceandculture_culture_card_culture,
-        R.drawable.img_culture_logo_culture,
+        R.drawable.img_culture_logo_culture
     ),
     CULTURE_DAVINCI(
         R.string.spaceandculture_culture_card_davinci,
-        R.drawable.img_culture_logo_davinci,
+        R.drawable.img_culture_logo_davinci
     ),
     CULTURE_OVER(
         R.string.spaceandculture_culture_card_over,
-        R.drawable.img_culture_logo_over,
+        R.drawable.img_culture_logo_over
     ),
     CULTURE_FAN(
         R.string.spaceandculture_culture_card_fan,
-        R.drawable.img_culture_logo_fan,
+        R.drawable.img_culture_logo_fan
     ),
     CULTURE_LIMITED(
         R.string.spaceandculture_culture_card_limited,
-        R.drawable.img_culture_logo_limited,
-    ),
+        R.drawable.img_culture_logo_limited
+    )
 }

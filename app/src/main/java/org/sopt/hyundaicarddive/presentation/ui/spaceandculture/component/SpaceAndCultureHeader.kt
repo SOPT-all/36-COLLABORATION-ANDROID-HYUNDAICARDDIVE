@@ -1,6 +1,5 @@
 package org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -72,7 +71,7 @@ fun SpaceAndCultureHeader(
 
         HorizontalDivider(
             thickness = 1.dp,
-            color = colors.black,
+            color = colors.black
         )
     }
 }

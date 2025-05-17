@@ -34,7 +34,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 fun SpaceAndCultureCardGrid(
     modifier: Modifier = Modifier,
     cards: List<SpaceAndCultureGridItem>,
-    navigateToDetail: () -> Unit = {},
+    navigateToDetail: () -> Unit = {}
 ) {
     Column(
         modifier = modifier
@@ -69,27 +69,27 @@ fun SpaceAndCultureCard(
     @StringRes description: Int,
     @DrawableRes logoResId: Int,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit = {},
+    onClick: () -> Unit = {}
 ) {
     Box(
         modifier = modifier
             .aspectRatio(88f / 98f)
             .background(color = colors.white, shape = RoundedCornerShape(8.dp))
-            .noRippleClickable(onClick),
+            .noRippleClickable(onClick)
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(88f / 63f),
-                contentAlignment = Alignment.Center,
+                contentAlignment = Alignment.Center
             ) {
                 Image(
                     painter = painterResource(logoResId),
-                    contentDescription = null,
+                    contentDescription = null
                 )
             }
 
@@ -97,7 +97,7 @@ fun SpaceAndCultureCard(
                 text = stringResource(description),
                 color = colors.gray3,
                 style = typography.ns_m_10,
-                textAlign = TextAlign.Center,
+                textAlign = TextAlign.Center
             )
         }
     }
@@ -109,7 +109,7 @@ private fun PreviewSpaceAndCultureCard() {
     HYUNDAICARDDIVETheme {
         SpaceAndCultureCard(
             description = R.string.spaceandculture_space_card_artlib,
-            logoResId = R.drawable.img_space_logo_designlib,
+            logoResId = R.drawable.img_space_logo_designlib
         )
     }
 }

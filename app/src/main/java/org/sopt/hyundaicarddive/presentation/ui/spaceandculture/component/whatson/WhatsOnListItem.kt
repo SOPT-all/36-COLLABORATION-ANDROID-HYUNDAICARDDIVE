@@ -31,7 +31,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 fun WhatsOnListItem(
     whatsOnListModel: WhatsOnListModel,
     modifier: Modifier = Modifier,
-    isLast: Boolean = false,
+    isLast: Boolean = false
 ) {
     Row(
         modifier = modifier
@@ -57,11 +57,11 @@ fun WhatsOnListItem(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 8.dp, bottom = if (!isLast) 40.dp else 0.dp),
-            verticalAlignment = Alignment.CenterVertically,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Column(
                 modifier = Modifier
-                    .weight(1f),
+                    .weight(1f)
             ) {
                 Text(
                     text = whatsOnListModel.date,
@@ -102,7 +102,7 @@ fun WhatsOnListItem(
                     Text(
                         text = whatsOnListModel.location,
                         color = colors.gray3,
-                        style = typography.ns_m_10,
+                        style = typography.ns_m_10
                     )
                     if (whatsOnListModel.isReservable) {
                         VerticalDivider(
@@ -115,7 +115,7 @@ fun WhatsOnListItem(
                         Text(
                             text = "예매",
                             color = colors.pointGreen,
-                            style = typography.ns_m_10,
+                            style = typography.ns_m_10
                         )
                     }
                 }
@@ -145,9 +145,8 @@ private fun PreviewWhatsOnListItem() {
         imageUrl = "https://github.com/user-attachments/assets/f35d50b8-0232-40d0-bcb3-bfb86c262c77"
     )
     HYUNDAICARDDIVETheme {
-
         WhatsOnListItem(
-            whatsOnListModel = model,
+            whatsOnListModel = model
         )
     }
 }

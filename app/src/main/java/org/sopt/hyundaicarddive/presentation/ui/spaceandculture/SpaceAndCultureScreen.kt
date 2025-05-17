@@ -29,7 +29,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 fun SpaceAndCultureRoute(
     padding: PaddingValues,
     navigateToDetail: () -> Unit,
-    viewModel: SpaceAndCultureViewModel = hiltViewModel(),
+    viewModel: SpaceAndCultureViewModel = hiltViewModel()
 ) {
     val whatsOnList by viewModel.whatsOnList.collectAsStateWithLifecycle()
     val spaceList by viewModel.spaceList.collectAsStateWithLifecycle()
@@ -46,7 +46,7 @@ fun SpaceAndCultureRoute(
         navigateToDetail = navigateToDetail,
         whatsOnList = whatsOnList,
         spaceList = spaceList,
-        cultureList = cultureList,
+        cultureList = cultureList
     )
 }
 
@@ -57,16 +57,16 @@ private fun SpaceAndCultureScreen(
     whatsOnList: List<WhatsOnListModel>,
     spaceList: List<SpaceAndCultureGridItem>,
     cultureList: List<SpaceAndCultureGridItem>,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize()
     ) {
         TopBar(
-            topBarType = TopBarType.SPACEANDCULTURE,
+            topBarType = TopBarType.SPACEANDCULTURE
         )
         LazyColumn(
-            contentPadding = padding,
+            contentPadding = padding
         ) {
             item {
                 Spacer(modifier = Modifier.height(15.dp))
@@ -77,11 +77,11 @@ private fun SpaceAndCultureScreen(
                     SpaceAndCultureHeader(
                         title = stringResource(R.string.spaceandculture_header_space_title),
                         description = stringResource(R.string.spaceandculture_header_space_description),
-                        paddingValues = PaddingValues(start = 24.dp, end = 24.dp, top = 42.dp, bottom = 16.dp),
+                        paddingValues = PaddingValues(start = 24.dp, end = 24.dp, top = 42.dp, bottom = 16.dp)
                     )
                     SpaceAndCultureCardGrid(
                         cards = spaceList,
-                        navigateToDetail = navigateToDetail,
+                        navigateToDetail = navigateToDetail
                     )
                 }
             }
@@ -90,11 +90,11 @@ private fun SpaceAndCultureScreen(
                     SpaceAndCultureHeader(
                         title = stringResource(R.string.spaceandculture_header_culture_title),
                         description = stringResource(R.string.spaceandculture_header_culture_description),
-                        paddingValues = PaddingValues(start = 24.dp, end = 24.dp, top = 36.dp, bottom = 16.dp),
+                        paddingValues = PaddingValues(start = 24.dp, end = 24.dp, top = 36.dp, bottom = 16.dp)
                     )
                     SpaceAndCultureCardGrid(
                         cards = cultureList,
-                        navigateToDetail = navigateToDetail,
+                        navigateToDetail = navigateToDetail
                     )
                     Spacer(modifier = Modifier.height(36.dp))
                 }
@@ -108,7 +108,8 @@ private fun SpaceAndCultureScreen(
 private fun PreviewSpaceAndCultureScreen() {
     HYUNDAICARDDIVETheme {
         SpaceAndCultureScreen(
-            padding = PaddingValues(), navigateToDetail = {},
+            padding = PaddingValues(),
+            navigateToDetail = {},
             whatsOnList = listOf(
                 WhatsOnListModel(
                     "05/10(토) ~ 06/29(일)",
@@ -117,7 +118,7 @@ private fun PreviewSpaceAndCultureScreen() {
                     "스토리지",
                     "이태원",
                     false,
-                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
                 WhatsOnListModel(
                     "05/23(금)",
@@ -126,7 +127,7 @@ private fun PreviewSpaceAndCultureScreen() {
                     "스토리지",
                     "이태원",
                     true,
-                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
                 WhatsOnListModel(
                     "05/23(금)",
@@ -135,11 +136,11 @@ private fun PreviewSpaceAndCultureScreen() {
                     "스토리지",
                     "이태원",
                     true,
-                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
-                ),
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
+                )
             ),
             spaceList = listOf(),
-            cultureList = listOf(),
+            cultureList = listOf()
         )
     }
 }

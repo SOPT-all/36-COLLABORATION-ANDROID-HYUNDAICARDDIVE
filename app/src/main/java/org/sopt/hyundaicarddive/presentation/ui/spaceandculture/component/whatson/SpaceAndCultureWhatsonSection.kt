@@ -16,14 +16,14 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
 fun SpaceAndCultureWhatsOnSection(
-    whatsOnList: List<WhatsOnListModel>,
+    whatsOnList: List<WhatsOnListModel>
 ) {
     Column {
         SpaceAndCultureHeader(
             title = stringResource(R.string.spaceandculture_header_whatson_title),
             description = null,
             paddingValues = PaddingValues(horizontal = 24.dp),
-            hasMoreContent = true,
+            hasMoreContent = true
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -50,7 +50,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     "스토리지",
                     "이태원",
                     false,
-                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
                 WhatsOnListModel(
                     "05/23(금)",
@@ -59,7 +59,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     "스토리지",
                     "이태원",
                     true,
-                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
                 WhatsOnListModel(
                     "05/23(금)",
@@ -68,7 +68,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     "스토리지",
                     "이태원",
                     true,
-                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
+                    "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 )
             )
         )

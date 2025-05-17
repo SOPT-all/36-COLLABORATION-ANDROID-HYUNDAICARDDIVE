@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SpaceAndCultureViewModel @Inject constructor(
-    private val dummyUseCase: DummyUseCase,
+    private val dummyUseCase: DummyUseCase
 ) : ViewModel() {
 
     private val _whatsOnList = MutableStateFlow<List<WhatsOnListModel>>(emptyList())
@@ -34,7 +34,7 @@ class SpaceAndCultureViewModel @Inject constructor(
             "스토리지",
             "이태원",
             false,
-            "https://picsum.photos/90/90",
+            "https://picsum.photos/90/90"
         ),
         WhatsOnListModel(
             "05/23(금)",
@@ -43,7 +43,7 @@ class SpaceAndCultureViewModel @Inject constructor(
             "스토리지",
             "이태원",
             true,
-            "https://picsum.photos/90/90",
+            "https://picsum.photos/90/90"
         ),
         WhatsOnListModel(
             "05/25(일)",
@@ -52,7 +52,7 @@ class SpaceAndCultureViewModel @Inject constructor(
             "언더스테이지",
             "이태원",
             true,
-            "https://picsum.photos/90/90",
+            "https://picsum.photos/90/90"
         )
     )
 
@@ -66,7 +66,7 @@ class SpaceAndCultureViewModel @Inject constructor(
         SpaceAndCultureGridItem.SPACE_STORAGE,
         SpaceAndCultureGridItem.SPACE_IRON,
         SpaceAndCultureGridItem.SPACE_RED11,
-        SpaceAndCultureGridItem.SPACE_CARD,
+        SpaceAndCultureGridItem.SPACE_CARD
     )
 
     private val cultureItems: List<SpaceAndCultureGridItem> = listOf(
@@ -75,7 +75,7 @@ class SpaceAndCultureViewModel @Inject constructor(
         SpaceAndCultureGridItem.CULTURE_DAVINCI,
         SpaceAndCultureGridItem.CULTURE_OVER,
         SpaceAndCultureGridItem.CULTURE_FAN,
-        SpaceAndCultureGridItem.CULTURE_LIMITED,
+        SpaceAndCultureGridItem.CULTURE_LIMITED
     )
 
     fun getWhatsOnListItems() {
