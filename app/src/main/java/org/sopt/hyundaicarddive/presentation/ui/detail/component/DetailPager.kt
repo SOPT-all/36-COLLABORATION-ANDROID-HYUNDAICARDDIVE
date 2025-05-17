@@ -18,7 +18,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun DetailPager(
-    article: DetailArticleModel,
+    article: DetailArticleModel
 ) {
     Box(
         modifier = Modifier.fillMaxSize()
@@ -57,7 +57,6 @@ fun DetailPager(
             )
         }
     }
-
 }
 
 @Preview(showBackground = true)

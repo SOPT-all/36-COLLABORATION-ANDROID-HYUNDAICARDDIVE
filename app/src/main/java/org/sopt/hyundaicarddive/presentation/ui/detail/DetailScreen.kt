@@ -132,7 +132,6 @@ private fun DetailScreen(
             )
         }
 
-
         HorizontalDivider(
             thickness = 1.dp,
             color = colors.white2,

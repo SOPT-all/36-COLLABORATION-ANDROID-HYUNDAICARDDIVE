@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Color
 
 // Black
 val Black = Color(0xFF000000) // 100%
-val Black10 = Black.copy(alpha = 0.1f)// 10%
+val Black10 = Black.copy(alpha = 0.1f) // 10%
 val Black30 = Black.copy(alpha = 0.3f) // 30%
 val Black50 = Black.copy(alpha = 0.5f) // 50%
 
