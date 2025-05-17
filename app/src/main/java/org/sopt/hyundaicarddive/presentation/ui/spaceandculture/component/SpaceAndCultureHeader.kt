@@ -52,7 +52,7 @@ fun SpaceAndCultureHeader(
                 Text(
                     text = description,
                     style = typography.ns_m_12_22,
-                    color = colors.gray5
+                    color = colors.gray4
                 )
             }
             Spacer(
