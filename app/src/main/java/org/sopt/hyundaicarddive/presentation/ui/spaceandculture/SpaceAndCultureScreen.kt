@@ -1,24 +1,27 @@
 package org.sopt.hyundaicarddive.presentation.ui.spaceandculture
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
 import org.sopt.hyundaicarddive.presentation.model.WhatsOnListModel
+import org.sopt.hyundaicarddive.presentation.type.SpaceAndCultureGridItem
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
+import org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component.SpaceAndCultureCardGrid
+import org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component.SpaceAndCultureHeader
 import org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component.whatson.SpaceAndCultureWhatsOnSection
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
@@ -29,15 +32,21 @@ fun SpaceAndCultureRoute(
     viewModel: SpaceAndCultureViewModel = hiltViewModel(),
 ) {
     val whatsOnList by viewModel.whatsOnList.collectAsStateWithLifecycle()
+    val spaceList by viewModel.spaceList.collectAsStateWithLifecycle()
+    val cultureList by viewModel.cultureList.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         viewModel.getWhatsOnListItems()
+        viewModel.getSpaceListItems()
+        viewModel.getCultureListItems()
     }
 
     SpaceAndCultureScreen(
         padding = padding,
         navigateToDetail = navigateToDetail,
         whatsOnList = whatsOnList,
+        spaceList = spaceList,
+        cultureList = cultureList,
     )
 }
 
@@ -46,27 +55,52 @@ private fun SpaceAndCultureScreen(
     padding: PaddingValues,
     navigateToDetail: () -> Unit,
     whatsOnList: List<WhatsOnListModel>,
+    spaceList: List<SpaceAndCultureGridItem>,
+    cultureList: List<SpaceAndCultureGridItem>,
     modifier: Modifier = Modifier,
 ) {
-    Box(
-        modifier = modifier
-            .fillMaxSize(),
-    ){
-        Column{
-            TopBar(
-                topBarType = TopBarType.SPACEANDCULTURE,
-            )
-            LazyColumn (
-            ){
-                item {
-                    Spacer(modifier = Modifier.height(15.dp))
-                    SpaceAndCultureWhatsOnSection(whatsOnList = whatsOnList,)
-
+    Column(
+        modifier = modifier.fillMaxSize(),
+    ) {
+        TopBar(
+            topBarType = TopBarType.SPACEANDCULTURE,
+        )
+        LazyColumn(
+            contentPadding = padding,
+        ) {
+            item {
+                Spacer(modifier = Modifier.height(15.dp))
+                SpaceAndCultureWhatsOnSection(whatsOnList = whatsOnList)
+            }
+            item {
+                Column {
+                    SpaceAndCultureHeader(
+                        title = stringResource(R.string.spaceandculture_header_space_title),
+                        description = stringResource(R.string.spaceandculture_header_space_description),
+                        paddingValues = PaddingValues(start = 24.dp, end = 24.dp, top = 42.dp, bottom = 16.dp),
+                    )
+                    SpaceAndCultureCardGrid(
+                        cards = spaceList,
+                        navigateToDetail = navigateToDetail,
+                    )
+                }
+            }
+            item {
+                Column {
+                    SpaceAndCultureHeader(
+                        title = stringResource(R.string.spaceandculture_header_culture_title),
+                        description = stringResource(R.string.spaceandculture_header_culture_description),
+                        paddingValues = PaddingValues(start = 24.dp, end = 24.dp, top = 36.dp, bottom = 16.dp),
+                    )
+                    SpaceAndCultureCardGrid(
+                        cards = cultureList,
+                        navigateToDetail = navigateToDetail,
+                    )
+                    Spacer(modifier = Modifier.height(36.dp))
                 }
             }
         }
     }
-
 }
 
 @Preview(showBackground = true)
@@ -74,8 +108,7 @@ private fun SpaceAndCultureScreen(
 private fun PreviewSpaceAndCultureScreen() {
     HYUNDAICARDDIVETheme {
         SpaceAndCultureScreen(
-            padding = PaddingValues(),
-            navigateToDetail = {},
+            padding = PaddingValues(), navigateToDetail = {},
             whatsOnList = listOf(
                 WhatsOnListModel(
                     "05/10(토) ~ 06/29(일)",
@@ -104,7 +137,9 @@ private fun PreviewSpaceAndCultureScreen() {
                     true,
                     "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a",
                 ),
-            )
+            ),
+            spaceList = listOf(),
+            cultureList = listOf(),
         )
     }
 }

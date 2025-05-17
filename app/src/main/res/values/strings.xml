@@ -10,23 +10,23 @@
     <string name="spaceandculture_header_culture_description">현대카드만의 특별한 문화</string>
     <string name="spaceandculture_header_btn_space_more">컨텐츠 더보기</string>
     <!-- Space Cards -->
-    <string name="spaceandculture_space_card_description1">시대를 초월한\n디자인과의 조우</string>
-    <string name="spaceandculture_space_card_description2">바이닐에서 영감을</string>
-    <string name="spaceandculture_space_card_description3">쿠킹의 모든것</string>
-    <string name="spaceandculture_space_card_description4">컨템포러리\n아트 스페이스</string>
-    <string name="spaceandculture_space_card_description5">다양한 문화 집결의\n공연장</string>
-    <string name="spaceandculture_space_card_description6">음악을 보고 듣고\n소유하는</string>
-    <string name="spaceandculture_space_card_description7">장르를 넘나드는\n실험적 전시 공간</string>
-    <string name="spaceandculture_space_card_description8">프리미엄 회원을 위한\n골프 공간</string>
-    <string name="spaceandculture_space_card_description9">브랜드를 통한\n새로운 경험</string>
-    <string name="spaceandculture_space_card_description10">카드를 위한\n오픈 팩토리</string>
+    <string name="spaceandculture_space_card_designlib">시대를 초월한\n디자인과의 조우</string>
+    <string name="spaceandculture_space_card_musiclib">바이닐에서 영감을</string>
+    <string name="spaceandculture_space_card_cookinglib">쿠킹의 모든것</string>
+    <string name="spaceandculture_space_card_artlib">컨템포러리\n아트 스페이스</string>
+    <string name="spaceandculture_space_card_understage">다양한 문화 집결의\n공연장</string>
+    <string name="spaceandculture_space_card_vinyl">음악을 보고 듣고\n소유하는</string>
+    <string name="spaceandculture_space_card_storage">장르를 넘나드는\n실험적 전시 공간</string>
+    <string name="spaceandculture_space_card_iron">프리미엄 회원을 위한\n골프 공간</string>
+    <string name="spaceandculture_space_card_red11">브랜드를 통한\n새로운 경험</string>
+    <string name="spaceandculture_space_card_card">카드를 위한\n오픈 팩토리</string>
 
-    <string name="spaceandculture_culture_card_description1">레전드 아티스트의\n독보적 무대</string>
-    <string name="spaceandculture_culture_card_description2">이 시대의\n컬처 아이콘</string>
-    <string name="spaceandculture_culture_card_description3">지성과 감성의\n컬래버레이션</string>
-    <string name="spaceandculture_culture_card_description4">프로들의\n실전 특강</string>
-    <string name="spaceandculture_culture_card_description5">팬들이 직접 만드는\n랜선 LIVE</string>
-    <string name="spaceandculture_culture_card_description6">한정판 바이닐을\n가장 먼저 만나는 곳</string>
+    <string name="spaceandculture_culture_card_super">레전드 아티스트의\n독보적 무대</string>
+    <string name="spaceandculture_culture_card_culture">이 시대의\n컬처 아이콘</string>
+    <string name="spaceandculture_culture_card_davinci">지성과 감성의\n컬래버레이션</string>
+    <string name="spaceandculture_culture_card_over">프로들의\n실전 특강</string>
+    <string name="spaceandculture_culture_card_fan">팬들이 직접 만드는\n랜선 LIVE</string>
+    <string name="spaceandculture_culture_card_limited">한정판 바이닐을\n가장 먼저 만나는 곳</string>
 
 
     <!-- Detail -->

@@ -26,7 +26,6 @@ import org.sopt.hyundaicarddive.presentation.model.WhatsOnListModel
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
-import timber.log.Timber
 
 @Composable
 fun WhatsOnListItem(
@@ -131,7 +130,6 @@ fun WhatsOnListItem(
             )
         }
     }
-    Timber.tag("zzz").d("whatsOnListModel: ${whatsOnListModel.imageUrl}")
 }
 
 @Preview(showBackground = true)
