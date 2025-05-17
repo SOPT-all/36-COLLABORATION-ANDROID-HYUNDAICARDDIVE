@@ -19,7 +19,6 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 @Composable
 fun DetailPager(
     article: DetailArticleModel,
-    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = Modifier.fillMaxSize()
@@ -61,8 +60,15 @@ fun DetailPager(
 
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun PreviewDetailPager() {
-
+    DetailPager(
+        article = DetailArticleModel(
+            imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250507/1456/P001492081.jpg/dims/resize/F_webp,400",
+            title = "경계선을 넘나드는 사진가",
+            subTitle = "4월의 디자이너, 다이안 아버스",
+            date = "2025.04.14"
+        )
+    )
 }
