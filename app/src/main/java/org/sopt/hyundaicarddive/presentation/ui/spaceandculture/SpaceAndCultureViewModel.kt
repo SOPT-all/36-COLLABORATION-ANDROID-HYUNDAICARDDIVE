@@ -20,12 +20,6 @@ class SpaceAndCultureViewModel @Inject constructor(
     private val _whatsOnList = MutableStateFlow<List<WhatsOnListModel>>(emptyList())
     val whatsOnList: StateFlow<List<WhatsOnListModel>> = _whatsOnList.asStateFlow()
 
-    private val _spaceList = MutableStateFlow<List<SpaceAndCultureGridItem>>(emptyList())
-    val spaceList: StateFlow<List<SpaceAndCultureGridItem>> = _spaceList.asStateFlow()
-
-    private val _cultureList = MutableStateFlow<List<SpaceAndCultureGridItem>>(emptyList())
-    val cultureList: StateFlow<List<SpaceAndCultureGridItem>> = _cultureList.asStateFlow()
-
     private val dummyItems: List<WhatsOnListModel> = listOf(
         WhatsOnListModel(
             "05/10(토) ~ 06/29(일)",
@@ -56,7 +50,7 @@ class SpaceAndCultureViewModel @Inject constructor(
         )
     )
 
-    private val spaceItems: List<SpaceAndCultureGridItem> = listOf(
+    val spaceListItems: List<SpaceAndCultureGridItem> = listOf(
         SpaceAndCultureGridItem.SPACE_DESIGNLIB,
         SpaceAndCultureGridItem.SPACE_MUSICLIB,
         SpaceAndCultureGridItem.SPACE_COOKINGLIB,
@@ -69,7 +63,7 @@ class SpaceAndCultureViewModel @Inject constructor(
         SpaceAndCultureGridItem.SPACE_CARD
     )
 
-    private val cultureItems: List<SpaceAndCultureGridItem> = listOf(
+    val cultureListItems: List<SpaceAndCultureGridItem> = listOf(
         SpaceAndCultureGridItem.CULTURE_SUPER,
         SpaceAndCultureGridItem.CULTURE_CULTURE,
         SpaceAndCultureGridItem.CULTURE_DAVINCI,
@@ -84,15 +78,4 @@ class SpaceAndCultureViewModel @Inject constructor(
         }
     }
 
-    fun getSpaceListItems() {
-        viewModelScope.launch {
-            _spaceList.value = spaceItems
-        }
-    }
-
-    fun getCultureListItems() {
-        viewModelScope.launch {
-            _cultureList.value = cultureItems
-        }
-    }
 }

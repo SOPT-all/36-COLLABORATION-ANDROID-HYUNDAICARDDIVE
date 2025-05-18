@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -32,27 +33,22 @@ fun SpaceAndCultureRoute(
     viewModel: SpaceAndCultureViewModel = hiltViewModel()
 ) {
     val whatsOnList by viewModel.whatsOnList.collectAsStateWithLifecycle()
-    val spaceList by viewModel.spaceList.collectAsStateWithLifecycle()
-    val cultureList by viewModel.cultureList.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         viewModel.getWhatsOnListItems()
-        viewModel.getSpaceListItems()
-        viewModel.getCultureListItems()
     }
 
     SpaceAndCultureScreen(
-        padding = padding,
         navigateToDetail = navigateToDetail,
         whatsOnList = whatsOnList,
-        spaceList = spaceList,
-        cultureList = cultureList
+        spaceList = viewModel.spaceListItems,
+        cultureList = viewModel.cultureListItems,
+        modifier = Modifier.padding(padding),
     )
 }
 
 @Composable
 private fun SpaceAndCultureScreen(
-    padding: PaddingValues,
     navigateToDetail: () -> Unit,
     whatsOnList: List<WhatsOnListModel>,
     spaceList: List<SpaceAndCultureGridItem>,
@@ -65,9 +61,7 @@ private fun SpaceAndCultureScreen(
         TopBar(
             topBarType = TopBarType.SPACEANDCULTURE
         )
-        LazyColumn(
-            contentPadding = padding
-        ) {
+        LazyColumn {
             item {
                 Spacer(modifier = Modifier.height(15.dp))
                 SpaceAndCultureWhatsOnSection(whatsOnList = whatsOnList)
@@ -108,7 +102,6 @@ private fun SpaceAndCultureScreen(
 private fun PreviewSpaceAndCultureScreen() {
     HYUNDAICARDDIVETheme {
         SpaceAndCultureScreen(
-            padding = PaddingValues(),
             navigateToDetail = {},
             whatsOnList = listOf(
                 WhatsOnListModel(
