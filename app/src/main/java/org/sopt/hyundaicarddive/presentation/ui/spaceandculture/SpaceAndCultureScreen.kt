@@ -43,7 +43,7 @@ fun SpaceAndCultureRoute(
         whatsOnList = whatsOnList,
         spaceList = viewModel.spaceListItems,
         cultureList = viewModel.cultureListItems,
-        modifier = Modifier.padding(padding),
+        modifier = Modifier.padding(padding)
     )
 }
 
@@ -87,8 +87,7 @@ private fun SpaceAndCultureScreen(
                         paddingValues = PaddingValues(start = 24.dp, end = 24.dp, top = 36.dp, bottom = 16.dp)
                     )
                     SpaceAndCultureCardGrid(
-                        cards = cultureList,
-                        navigateToDetail = navigateToDetail
+                        cards = cultureList
                     )
                     Spacer(modifier = Modifier.height(36.dp))
                 }

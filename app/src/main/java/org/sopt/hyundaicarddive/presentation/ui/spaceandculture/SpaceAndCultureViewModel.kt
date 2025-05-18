@@ -77,5 +77,4 @@ class SpaceAndCultureViewModel @Inject constructor(
             _whatsOnList.value = dummyItems
         }
     }
-
 }
