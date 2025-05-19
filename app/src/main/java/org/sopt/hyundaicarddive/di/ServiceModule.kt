@@ -4,15 +4,15 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
-import org.sopt.hyundaicarddive.data.remote.service.DummyService
+import org.sopt.hyundaicarddive.data.remote.service.HomeService
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object ServiceModule {
     @Provides
     @Singleton
-    fun providesDummyService(retrofit: Retrofit): DummyService =
-        retrofit.create(DummyService::class.java)
+    fun providesHomeService(retrofit: Retrofit): HomeService =
+        retrofit.create(HomeService::class.java)
 }
