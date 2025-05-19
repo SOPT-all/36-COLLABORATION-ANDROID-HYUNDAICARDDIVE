@@ -32,8 +32,8 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun SpaceAndCultureCardGrid(
-    modifier: Modifier = Modifier,
     cards: List<SpaceAndCultureGridItem>,
+    modifier: Modifier = Modifier,
     navigateToDetail: () -> Unit = {}
 ) {
     Column(
