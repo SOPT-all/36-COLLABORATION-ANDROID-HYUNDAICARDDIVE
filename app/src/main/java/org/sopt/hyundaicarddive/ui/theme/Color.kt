@@ -6,12 +6,14 @@ import androidx.compose.ui.graphics.Color
 
 // Black
 val Black = Color(0xFF000000) // 100%
-val Black10 = Color(0x1A000000) // 10%
-val Black30 = Color(0x4D000000) // 30%
-val Black50 = Color(0x80000000) // 50%
+val Black10 = Black.copy(alpha = 0.1f) // 10%
+val Black30 = Black.copy(alpha = 0.3f) // 30%
+val Black50 = Black.copy(alpha = 0.5f) // 50%
 
 // White
 val White = Color(0xFFFFFFFF)
+val White2 = Color(0xFFF5F5F5)
+val White40 = White.copy(alpha = 0.4f) // 40%
 
 // Gray scale
 val Gray1 = Color(0xFFEEEEEE)
@@ -36,6 +38,8 @@ data class HyunDaiCardDiveColors(
     val black30: Color,
     val black50: Color,
     val white: Color,
+    val white2: Color,
+    val white40: Color,
     val gray1: Color,
     val gray2: Color,
     val gray3: Color,
@@ -54,6 +58,8 @@ val defaultHyunDaiCardDiveColors = HyunDaiCardDiveColors(
     black30 = Black30,
     black50 = Black50,
     white = White,
+    white2 = White2,
+    white40 = White40,
     gray1 = Gray1,
     gray2 = Gray2,
     gray3 = Gray3,
