@@ -5,13 +5,13 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-import org.sopt.hyundaicarddive.data.remote.datasource.DummyRemoteDataSource
-import org.sopt.hyundaicarddive.data.remote.datasourceimpl.DummyRemoteDataSourceImpl
+import org.sopt.hyundaicarddive.data.remote.datasource.HomeRemoteDataSource
+import org.sopt.hyundaicarddive.data.remote.datasourceimpl.HomeRemoteDataSourceImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class DataSourceModule {
     @Binds
     @Singleton
-    abstract fun bindsDummyDataSource(dummyRemoteDataSourceImpl: DummyRemoteDataSourceImpl): DummyRemoteDataSource
+    abstract fun bindsHomeDataSource(homeRemoteDataSourceImpl: HomeRemoteDataSourceImpl): HomeRemoteDataSource
 }
