@@ -9,14 +9,36 @@
     <string name="spaceandculture_header_space_description">현대카드만의 특별한 공간</string>
     <string name="spaceandculture_header_culture_description">현대카드만의 특별한 문화</string>
     <string name="spaceandculture_header_btn_space_more">컨텐츠 더보기</string>
+    <!-- Space Cards -->
+    <string name="spaceandculture_space_card_designlib">시대를 초월한\n디자인과의 조우</string>
+    <string name="spaceandculture_space_card_musiclib">바이닐에서 영감을</string>
+    <string name="spaceandculture_space_card_cookinglib">쿠킹의 모든것</string>
+    <string name="spaceandculture_space_card_artlib">컨템포러리\n아트 스페이스</string>
+    <string name="spaceandculture_space_card_understage">다양한 문화 집결의\n공연장</string>
+    <string name="spaceandculture_space_card_vinyl">음악을 보고 듣고\n소유하는</string>
+    <string name="spaceandculture_space_card_storage">장르를 넘나드는\n실험적 전시 공간</string>
+    <string name="spaceandculture_space_card_iron">프리미엄 회원을 위한\n골프 공간</string>
+    <string name="spaceandculture_space_card_red11">브랜드를 통한\n새로운 경험</string>
+    <string name="spaceandculture_space_card_card">카드를 위한\n오픈 팩토리</string>
 
-  
+    <string name="spaceandculture_culture_card_super">레전드 아티스트의\n독보적 무대</string>
+    <string name="spaceandculture_culture_card_culture">이 시대의\n컬처 아이콘</string>
+    <string name="spaceandculture_culture_card_davinci">지성과 감성의\n컬래버레이션</string>
+    <string name="spaceandculture_culture_card_over">프로들의\n실전 특강</string>
+    <string name="spaceandculture_culture_card_fan">팬들이 직접 만드는\n랜선 LIVE</string>
+    <string name="spaceandculture_culture_card_limited">한정판 바이닐을\n가장 먼저 만나는 곳</string>
+
+
     <!-- Detail -->
-    <string name="detail_address_title">주소ㅤㅤ</string>
-    <string name="detail_time_title">운영시간</string>
+    <string name="detail_tab_bar_address_title">주소ㅤㅤ</string>
+    <string name="detail_tab_bar_time_title">운영시간</string>
+    <string name="detail_tab_bar_address_content">서울시 종로구 북촌로 31 - 18</string>
+    <string name="detail_tab_bar_time_content">화~토 12~21시 / 일, 공휴일 12~18시 (설, 추석 연휴 휴관)</string>
     <string name="detail_menu_space_title">공간 소개</string>
     <string name="detail_menu_book_search_title">도서 검색</string>
     <string name="detail_menu_reservation_title">레어북룸 예약</string>
     <string name="detail_menu_review_title">방문 인증</string>
     <string name="detail_menu_book_title">신규 도서</string>
+    <string name="detail_logo_description">시대를 초월한 디자인과의 조우</string>
+    <string name="detail_library_title">라이브러리 체크인</string>
 </resources>
