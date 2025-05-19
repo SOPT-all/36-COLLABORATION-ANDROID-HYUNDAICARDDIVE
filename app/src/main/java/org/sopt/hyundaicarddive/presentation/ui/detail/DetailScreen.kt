@@ -107,7 +107,8 @@ private fun DetailScreen(
             topBarType = TopBarType.DETAIL,
             onBackClick = {
                 onBackClick()
-            })
+            }
+        )
         Column(
             modifier = Modifier.padding(horizontal = 24.dp)
         ) {
