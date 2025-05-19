@@ -14,6 +14,6 @@ enum class TopBarType(
         centerIcon = R.drawable.ic_spaceculture_logo_space_culture
     ),
     DETAIL(
-        backIcon = R.drawable.ic_introduce_back_10
+        backIcon = R.drawable.ic_spacedetail_chevron_left_28
     )
 }
