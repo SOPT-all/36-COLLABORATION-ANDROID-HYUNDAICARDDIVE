@@ -29,5 +29,12 @@ enum class CategoryType(
     ),
     SPECIAL(
         description = "스페셜"
-    )
+    );
+
+    companion object{
+        fun fromValue(value: String): CategoryType {
+            return entries.firstOrNull { it.name.equals(value, ignoreCase = true) }
+                ?: TOTAL
+        }
+    }
 }
