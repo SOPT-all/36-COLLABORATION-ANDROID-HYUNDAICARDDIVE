@@ -1,6 +1,5 @@
 package org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -52,7 +51,7 @@ fun SpaceAndCultureHeader(
                 Text(
                     text = description,
                     style = typography.ns_m_12_22,
-                    color = colors.gray5
+                    color = colors.gray4
                 )
             }
             Spacer(
@@ -71,8 +70,8 @@ fun SpaceAndCultureHeader(
         Spacer(modifier = Modifier.height(8.dp))
 
         HorizontalDivider(
-            modifier = Modifier
-                .background(colors.black)
+            thickness = 1.dp,
+            color = colors.black
         )
     }
 }
