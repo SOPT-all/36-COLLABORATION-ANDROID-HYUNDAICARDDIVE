@@ -15,11 +15,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.sopt.hyundaicarddive.core.util.noRippleClickable
 import org.sopt.hyundaicarddive.presentation.type.DetailMenuItem
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
 fun DetailTabBar(
+    onSpaceClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -33,16 +35,25 @@ fun DetailTabBar(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         DetailMenuItem.entries.forEach { menu ->
-            DetailTabBarItem(menu)
+            DetailTabBarItem(
+                menu,
+                onSpaceClick = onSpaceClick
+            )
         }
     }
 }
 
 @Composable
 private fun DetailTabBarItem(
-    item: DetailMenuItem
+    item: DetailMenuItem,
+    onSpaceClick: () -> Unit
 ) {
     Column(
+        modifier = Modifier.noRippleClickable {
+            if (item == DetailMenuItem.SPACE) {
+                onSpaceClick()
+            }
+        },
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
@@ -63,5 +74,7 @@ private fun DetailTabBarItem(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewDetailTabBar() {
-    DetailTabBar()
+    DetailTabBar(
+        onSpaceClick = {}
+    )
 }

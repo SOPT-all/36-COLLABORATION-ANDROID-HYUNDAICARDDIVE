@@ -2,7 +2,6 @@ package org.sopt.hyundaicarddive.presentation.ui.detail
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -53,6 +52,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 fun DetailRoute(
     padding: PaddingValues,
     navigateToSpace: () -> Unit,
+    onBackClick: () -> Unit,
     viewModel: DetailViewModel = hiltViewModel()
 ) {
     LaunchedEffect(Unit) {
@@ -82,7 +82,8 @@ fun DetailRoute(
         pagerState = pagerState,
         detailModel = detailModel,
         modifier = Modifier.padding(padding),
-        navigateToSpace = navigateToSpace
+        navigateToSpace = navigateToSpace,
+        onBackClick = {}
     )
 }
 
@@ -91,14 +92,19 @@ private fun DetailScreen(
     pagerState: PagerState,
     detailModel: DetailModel?,
     modifier: Modifier = Modifier,
-    navigateToSpace: () -> Unit
+    navigateToSpace: () -> Unit,
+    onBackClick: () -> Unit
 ) {
     Column(
         modifier = modifier
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-        TopBar(topBarType = TopBarType.DETAIL)
+        TopBar(
+            topBarType = TopBarType.DETAIL,
+            onBackClick = {
+                onBackClick()
+            })
         Column(
             modifier = Modifier.padding(horizontal = 24.dp)
         ) {
@@ -107,9 +113,6 @@ private fun DetailScreen(
                 contentDescription = null,
                 modifier = Modifier
                     .padding(top = 12.dp)
-                    .clickable {
-                        navigateToSpace()
-                    }
             )
 
             Text(
@@ -138,7 +141,11 @@ private fun DetailScreen(
             modifier = Modifier.padding(top = 21.dp)
         )
 
-        DetailTabBar()
+        DetailTabBar(
+            onSpaceClick = {
+                navigateToSpace()
+            }
+        )
 
         Column(
             modifier = Modifier
@@ -237,7 +244,8 @@ private fun PreviewDetailScreen() {
                 )
             ),
             modifier = Modifier,
-            navigateToSpace = {}
+            navigateToSpace = {},
+            onBackClick = {}
         )
     }
 }

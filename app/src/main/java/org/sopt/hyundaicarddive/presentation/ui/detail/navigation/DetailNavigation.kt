@@ -19,7 +19,8 @@ fun NavGraphBuilder.detailNavGraph(
     composable<SpaceAndCultureRoute.Detail> {
         DetailRoute(
             padding = padding,
-            navigateToSpace = { navController.navigateToSpace() }
+            navigateToSpace = { navController.navigateToSpace() },
+            onBackClick = { navController.popBackStack() }
         )
     }
 }
