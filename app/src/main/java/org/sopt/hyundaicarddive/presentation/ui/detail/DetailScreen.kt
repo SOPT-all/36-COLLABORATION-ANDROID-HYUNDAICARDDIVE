@@ -59,9 +59,10 @@ fun DetailRoute(
         viewModel.getDetail()
     }
     val detailModel by viewModel.detailModel.collectAsStateWithLifecycle()
-    val articleListSize by viewModel.articleListSize.collectAsStateWithLifecycle()
 
-    val pagerState = rememberPagerState(pageCount = { articleListSize })
+    val pagerState = rememberPagerState(pageCount = {
+        detailModel?.articleList?.size ?: 0
+    })
 
     val pageCount = pagerState.pageCount
     val coroutineScope = rememberCoroutineScope()
@@ -83,7 +84,9 @@ fun DetailRoute(
         detailModel = detailModel,
         modifier = Modifier.padding(padding),
         navigateToSpace = navigateToSpace,
-        onBackClick = {}
+        onBackClick = {
+            onBackClick()
+        }
     )
 }
 

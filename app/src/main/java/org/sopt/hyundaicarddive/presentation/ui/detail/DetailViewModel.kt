@@ -14,8 +14,6 @@ class DetailViewModel @Inject constructor() : ViewModel() {
     private val _detailModel = MutableStateFlow<DetailModel?>(null)
     val detailModel: StateFlow<DetailModel?> = _detailModel.asStateFlow()
 
-    val articleListSize = MutableStateFlow(0)
-
     val dummyDetailModel: DetailModel = DetailModel(
         address = "서울시 종로구 북촌로 31-18",
         operationTime = "화~토 12~21시 / 일, 공휴일 12~18시 (설, 추석 연휴 휴관)",
@@ -49,6 +47,5 @@ class DetailViewModel @Inject constructor() : ViewModel() {
 
     fun getDetail() {
         _detailModel.value = dummyDetailModel
-        articleListSize.value = dummyDetailModel.articleList.size
     }
 }
