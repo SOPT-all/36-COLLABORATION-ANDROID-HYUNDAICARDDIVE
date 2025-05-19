@@ -40,6 +40,7 @@ import coil.compose.AsyncImage
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.presentation.model.SpaceReviewModel
 import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceBaseButton
+import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceCautionGrid
 import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceReviewPager
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
@@ -103,7 +104,22 @@ private fun SpaceScreen(
 
                 SpaceContactSection()
 
-                SpaceNoticeSection()
+                SpaceCautionSection()
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(colors.black),
+                    contentAlignment = Alignment.Center,
+                ){
+                    Text(
+                        text = "테이블룸 예약",
+                        style = typography.ns_sb_16,
+                        color = colors.white,
+                        modifier = Modifier
+                            .padding(vertical = 16.dp)
+                    )
+                }
             }
         }
 
@@ -129,12 +145,70 @@ private fun SpaceScreen(
 }
 
 @Composable
-private fun SpaceNoticeSection() {
+private fun SpaceCautionSection() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 24.dp, horizontal = 20.dp)
+    ){
+        Text(
+            text = "입장 시 유의사항",
+            style = typography.ns_sb_20,
+            color = colors.black,
+        )
+        SpaceCautionGrid()
+    }
 }
 
 @Composable
 private fun SpaceContactSection() {
-
+    Column(
+        modifier = Modifier
+            .padding(vertical = 24.dp, horizontal = 20.dp)
+    ){
+        Text(
+            text = "기타 문의",
+            style = typography.ns_sb_20,
+            color = colors.black,
+        )
+        Row(
+            modifier = Modifier
+                .padding(top = 16.dp)
+        ){
+            Text(
+                text = "Tel.",
+                style = typography.ns_sb_16,
+                color = colors.black,
+                modifier = Modifier.padding(end = 16.dp)
+            )
+            Text(
+                text = "02-3700-2700",
+                style = typography.ns_r_16,
+                color = colors.black,
+            )
+        }
+        Row(
+            modifier = Modifier
+                .padding(top = 5.dp)
+        ){
+            Text(
+                text = "E-mail.",
+                style = typography.ns_sb_16,
+                color = colors.black,
+                modifier = Modifier.padding(end = 16.dp)
+            )
+            Text(
+                text = "designlibrary@hcs.com",
+                style = typography.ns_r_16,
+                color = colors.black,
+            )
+        }
+    }
+    HorizontalDivider(
+        modifier = Modifier.fillMaxWidth(),
+        thickness = 12.dp,
+        color = colors.white2
+    )
 }
 
 @Composable
@@ -188,7 +262,6 @@ private fun SpaceReviewSection(
         thickness = 12.dp,
         color = colors.white2
     )
-
 }
 
 @Composable
@@ -279,7 +352,7 @@ private fun SpaceIntroductionSection() {
             modifier = Modifier.padding(bottom = 16.dp)
         )
         Text(
-            text = "현대카드 디자인 라이브러리는 근대 디자인 정신이\n태동한 지점인 바우하우스 이후의 디자인," + " 건축, 현대\n미술에 관한 1만 9천여 권의 전문서적을 엄선하여 선\n보인다. 소량 인쇄했거나," + " 절판된 희귀 도서를 포함해\n글로벌 북 큐레이터가 선정한 북 컬렉션과 디자인에\n특화된 도서 카테고리에서 디자인 라이브러리의 전\n문성과 객관성을 발견할 수 있다.\n\n가회동에서 위치한 전통과 현대의 조화로 재해석해\n리노베이션 한 라이브러리 공간에서는 다채로운 경\n험을 선사한다." + " \n\n바쁜 도시의 급한 발걸음을 잊고 몰입의 시간을 통해\n지적인 영감을 얻을 수 있는 공간, 현대카드 디자인\n라이브러리이다.",
+            text = "현대카드 디자인 라이브러리는 근대 디자인 정신이 태동한 지점인 바우하우스 이후의 디자인," + " 건축, 현대 미술에 관한 1만 9천여 권의 전문서적을 엄선하여 선보인다. 소량 인쇄했거나," + " 절판된 희귀 도서를 포함해 글로벌 북 큐레이터가 선정한 북 컬렉션과 디자인에 특화된 도서 카테고리에서 디자인 라이브러리의 전문성과 객관성을 발견할 수 있다.\n\n가회동에서 위치한 전통과 현대의 조화로 재해석해 리노베이션 한 라이브러리 공간에서는 다채로운 경험을 선사한다." + " \n\n바쁜 도시의 급한 발걸음을 잊고 몰입의 시간을 통해 지적인 영감을 얻을 수 있는 공간, 현대카드 디자인 라이브러리이다.",
             style = typography.ns_r_16,
             color = colors.gray5
         )

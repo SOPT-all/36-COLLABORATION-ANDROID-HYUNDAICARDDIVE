@@ -28,6 +28,14 @@
     <string name="spaceandculture_culture_card_fan">팬들이 직접 만드는\n랜선 LIVE</string>
     <string name="spaceandculture_culture_card_limited">한정판 바이닐을\n가장 먼저 만나는 곳</string>
 
+    <!-- Space -->
+    <string name="space_notice_description1">슬리퍼, 운동복,\n등산복 입장 불가</string>
+    <string name="space_notice_description2">반려 동물\n입장 불가</string>
+    <string name="space_notice_description3">외부 음식\n반입 금지</string>
+    <string name="space_notice_description4">금연</string>
+    <string name="space_notice_description5">도서 대출 및\n복사 불가</string>
+    <string name="space_notice_description6">스마트폰 사진\n촬영 가능</string>
+    <string name="space_notice_description6_detail">카메라 및 촬영\n전문 장비 사용 불가</string>
 
     <!-- Detail -->
     <string name="detail_tab_bar_address_title">주소ㅤㅤ</string>

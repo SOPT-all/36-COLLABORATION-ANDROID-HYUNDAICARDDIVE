@@ -37,7 +37,7 @@ fun SpaceReviewPager(
     HorizontalPager(
         modifier = modifier
             .fillMaxWidth()
-            .padding(top = 20.dp, bottom = 28.dp),
+            .padding(bottom = 24.dp),
         state = pagerState,
         pageSize = PageSize.Fill,
         contentPadding = PaddingValues(horizontal = 20.dp),
