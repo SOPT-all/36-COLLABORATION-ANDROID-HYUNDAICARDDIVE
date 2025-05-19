@@ -12,11 +12,15 @@
 
   
     <!-- Detail -->
-    <string name="detail_address_title">주소ㅤㅤ</string>
-    <string name="detail_time_title">운영시간</string>
+    <string name="detail_tab_bar_address_title">주소ㅤㅤ</string>
+    <string name="detail_tab_bar_time_title">운영시간</string>
+    <string name="detail_tab_bar_address_content">서울시 종로구 북촌로 31 - 18</string>
+    <string name="detail_tab_bar_time_content">화~토 12~21시 / 일, 공휴일 12~18시 (설, 추석 연휴 휴관)</string>
     <string name="detail_menu_space_title">공간 소개</string>
     <string name="detail_menu_book_search_title">도서 검색</string>
     <string name="detail_menu_reservation_title">레어북룸 예약</string>
     <string name="detail_menu_review_title">방문 인증</string>
     <string name="detail_menu_book_title">신규 도서</string>
+    <string name="detail_logo_description">시대를 초월한 디자인과의 조우</string>
+    <string name="detail_library_title">라이브러리 체크인</string>
 </resources>
