@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,6 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
+import org.sopt.hyundaicarddive.core.util.toast
 import org.sopt.hyundaicarddive.domain.model.HomeData
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
 import org.sopt.hyundaicarddive.presentation.ui.home.component.CategoryBar
@@ -35,6 +37,9 @@ fun HomeRoute(
     padding: PaddingValues,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
+    val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
+
     val selectedOption by viewModel.selectedOption.collectAsStateWithLifecycle()
     val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
     val changeListAlign by viewModel.changeListAlign.collectAsStateWithLifecycle()
@@ -42,6 +47,13 @@ fun HomeRoute(
 
     LaunchedEffect(selectedOption, selectedCategory) {
         viewModel.getHomeList()
+    }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            context.toast(it)
+            viewModel.clearToastMessage()
+        }
     }
 
     HomeScreen(
