@@ -54,27 +54,27 @@ class SpaceViewModel @Inject constructor(
     fun getReviewListItem() {
         _reviewList.value = listOf(
             SpaceReviewModel(
-                imgUrl = "https://picsum.photos/312/214",
+                imgUrl = "https://picsum.photos/292/200",
                 reviewer = "Clare",
                 likeCount = 0
             ),
             SpaceReviewModel(
-                imgUrl = "https://picsum.photos/312/214",
+                imgUrl = "https://picsum.photos/292/200",
                 reviewer = "MJ",
                 likeCount = 0
             ),
             SpaceReviewModel(
-                imgUrl = "https://picsum.photos/312/214",
+                imgUrl = "https://picsum.photos/292/200",
                 reviewer = "Chloe",
                 likeCount = 0
             ),
             SpaceReviewModel(
-                imgUrl = "https://picsum.photos/312/214",
+                imgUrl = "https://picsum.photos/292/200",
                 reviewer = "하늘",
                 likeCount = 0
             ),
             SpaceReviewModel(
-                imgUrl = "https://picsum.photos/312/214",
+                imgUrl = "https://picsum.photos/292/200",
                 reviewer = "Jay",
                 likeCount = 0
             )

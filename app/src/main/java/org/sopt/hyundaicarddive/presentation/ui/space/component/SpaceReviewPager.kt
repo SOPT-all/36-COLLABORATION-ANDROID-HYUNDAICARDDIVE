@@ -47,7 +47,7 @@ fun SpaceReviewPager(
             Spacer(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(312f / 214f)
+                    .aspectRatio(292f / 200f)
             )
         } else {
             Column(
@@ -59,7 +59,7 @@ fun SpaceReviewPager(
                     contentDescription = null,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .aspectRatio(312f / 214f)
+                        .aspectRatio(292f / 200f)
                 )
                 Row(
                     modifier = Modifier
