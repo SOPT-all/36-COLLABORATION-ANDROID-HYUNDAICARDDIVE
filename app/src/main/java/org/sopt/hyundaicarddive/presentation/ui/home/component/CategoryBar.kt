@@ -76,11 +76,11 @@ fun CategoryBar(
                 Text(
                     text = contentLists[index],
                     style = typography.ns_sb_12,
-                    color = if (selectedIndex == index) colors.white else colors.gray5,
+                    color = if (selectedIndex == index) colors.white else colors.gray4,
                     modifier = Modifier
                         .padding(
                             horizontal = 16.dp,
-                            vertical = 7.dp
+                            vertical = 8.dp
                         )
                 )
             }

@@ -19,14 +19,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import org.sopt.hyundaicarddive.presentation.model.HomeListModel
+import org.sopt.hyundaicarddive.domain.model.HomeData
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun HomeCardListSection(
-    items: List<HomeListModel>,
+    items: List<HomeData>,
     modifier: Modifier = Modifier
 ) {
     LazyVerticalGrid(
@@ -45,7 +45,7 @@ fun HomeCardListSection(
 
 @Composable
 private fun HomeCardList(
-    homeListModel: HomeListModel,
+    homeListModel: HomeData,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -106,13 +106,13 @@ private fun PreviewHomeCardList() {
     HYUNDAICARDDIVETheme {
         HomeCardListSection(
             items = listOf(
-                HomeListModel(
+                HomeData(
                     category = "쿠킹-고메",
                     title = "집밥은 아쉬운\n그런 날 있잖아",
                     hashTag = "신상 맛집 #21",
                     imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400"
                 ),
-                HomeListModel(
+                HomeData(
                     category = "여행",
                     title = "예술 세계 속으로",
                     hashTag = "디깅 투어#2\n대구-경주 건축 여행 #3",

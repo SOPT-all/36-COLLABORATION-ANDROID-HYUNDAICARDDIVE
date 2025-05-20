@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -21,7 +22,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
-import org.sopt.hyundaicarddive.presentation.model.HomeListModel
+import org.sopt.hyundaicarddive.core.util.toast
+import org.sopt.hyundaicarddive.domain.model.HomeData
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
 import org.sopt.hyundaicarddive.presentation.ui.home.component.CategoryBar
 import org.sopt.hyundaicarddive.presentation.ui.home.component.HomeCardListSection
@@ -35,13 +37,24 @@ fun HomeRoute(
     padding: PaddingValues,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    LaunchedEffect(Unit) {
-        viewModel.getHomeList()
-    }
+    val context = LocalContext.current
+    val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
+
     val selectedOption by viewModel.selectedOption.collectAsStateWithLifecycle()
     val selectedCategory by viewModel.selectedCategory.collectAsStateWithLifecycle()
     val changeListAlign by viewModel.changeListAlign.collectAsStateWithLifecycle()
     val homeList by viewModel.homeList.collectAsStateWithLifecycle()
+
+    LaunchedEffect(selectedOption, selectedCategory) {
+        viewModel.getHomeList()
+    }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            context.toast(it)
+            viewModel.clearToastMessage()
+        }
+    }
 
     HomeScreen(
         selectedOption = selectedOption,
@@ -63,7 +76,7 @@ private fun HomeScreen(
     onCategorySelected: (Int) -> Unit,
     changeListAlign: Boolean,
     onChangeListAlign: () -> Unit,
-    homeList: List<HomeListModel>,
+    homeList: List<HomeData>,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -126,13 +139,13 @@ private fun PreviewHomeScreen() {
             onCategorySelected = {},
             changeListAlign = false,
             homeList = listOf(
-                HomeListModel(
+                HomeData(
                     category = "쿠킹-고메",
                     title = "집밥은 아쉬운\n그런 날 있잖아",
                     hashTag = "신상 맛집 #21",
                     imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP1170/ko/20250414/0643/P001768976.jpg/dims/resize/F_webp,400"
                 ),
-                HomeListModel(
+                HomeData(
                     category = "여행",
                     title = "예술 세계 속으로",
                     hashTag = "디깅 투어#2\n대구-경주 건축 여행 #3",
