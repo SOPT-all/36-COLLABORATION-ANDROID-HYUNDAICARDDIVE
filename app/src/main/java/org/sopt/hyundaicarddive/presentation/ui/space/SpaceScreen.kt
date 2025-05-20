@@ -62,7 +62,7 @@ fun SpaceRoute(
     }
 
     val pagerState = rememberPagerState(pageCount = {
-        reviewList.size + 1
+        reviewList.size
     })
 
     SpaceScreen(

@@ -32,7 +32,7 @@ fun SpaceReviewPager(
     spaceReviewList: List<SpaceReviewModel>,
     pagerState: PagerState,
     onClickLike: (Int) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     HorizontalPager(
         modifier = modifier
@@ -43,57 +43,49 @@ fun SpaceReviewPager(
         contentPadding = PaddingValues(horizontal = 20.dp)
     ) { page ->
 
-        if (page == spaceReviewList.size) {
-            Spacer(
+        Column(
+            modifier = Modifier
+                .padding(end = 20.dp)
+        ) {
+            AsyncImage(
+                model = spaceReviewList[page].imgUrl,
+                contentDescription = null,
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(292f / 200f)
             )
-        } else {
-            Column(
+            Row(
                 modifier = Modifier
-                    .padding(end = 20.dp)
+                    .padding(top = 12.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                AsyncImage(
-                    model = spaceReviewList[page].imgUrl,
+                Text(
+                    text = spaceReviewList[page].reviewer + " 님",
+                    style = typography.ns_sb_16,
+                    color = colors.black,
+                    modifier = Modifier
+                        .padding(vertical = 8.dp)
+                )
+                Spacer(modifier = Modifier.weight(1f))
+                Icon(
+                    imageVector = ImageVector.vectorResource(
+                        if (spaceReviewList[page].isLiked) {
+                            R.drawable.ic_introduce_like_fill_red_24
+                        } else {
+                            R.drawable.ic_introduce_like_black_24
+                        }
+                    ),
+                    tint = if (spaceReviewList[page].isLiked) colors.pointRed else colors.black,
                     contentDescription = null,
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .aspectRatio(292f / 200f)
+                        .padding(8.dp)
+                        .noRippleClickable { onClickLike(page) }
                 )
-                Row(
-                    modifier = Modifier
-                        .padding(top = 12.dp),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Text(
-                        text = spaceReviewList[page].reviewer + " 님",
-                        style = typography.ns_sb_16,
-                        color = colors.black,
-                        modifier = Modifier
-                            .padding(vertical = 8.dp)
-                    )
-                    Spacer(modifier = Modifier.weight(1f))
-                    Icon(
-                        imageVector = ImageVector.vectorResource(
-                            if (spaceReviewList[page].isLiked) {
-                                R.drawable.ic_introduce_like_fill_red_24
-                            } else {
-                                R.drawable.ic_introduce_like_black_24
-                            }
-                        ),
-                        tint = if (spaceReviewList[page].isLiked) colors.pointRed else colors.black,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .padding(8.dp)
-                            .noRippleClickable { onClickLike(page) }
-                    )
-                    Text(
-                        text = spaceReviewList[page].likeCount.toString(),
-                        style = typography.ns_m_12_18,
-                        color = colors.black
-                    )
-                }
+                Text(
+                    text = spaceReviewList[page].likeCount.toString(),
+                    style = typography.ns_m_12_18,
+                    color = colors.black
+                )
             }
         }
     }
