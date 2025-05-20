@@ -51,7 +51,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 fun SpaceRoute(
     padding: PaddingValues,
     onBackClick: () -> Unit,
-    viewModel: SpaceViewModel = hiltViewModel(),
+    viewModel: SpaceViewModel = hiltViewModel()
 ) {
     val reviewList by viewModel.reviewList.collectAsStateWithLifecycle()
     val spaceModel by viewModel.spaceModel.collectAsStateWithLifecycle()
@@ -71,7 +71,7 @@ fun SpaceRoute(
         onClickLike = viewModel::toggleLike,
         reviewList = reviewList,
         pagerState = pagerState,
-        spaceModel = spaceModel,
+        spaceModel = spaceModel
     )
 }
 
@@ -83,7 +83,7 @@ private fun SpaceScreen(
     pagerState: PagerState,
     reviewList: List<SpaceReviewModel>,
     spaceModel: SpaceModel?,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Box(
         modifier = modifier
@@ -112,25 +112,12 @@ private fun SpaceScreen(
 
                 SpaceContactSection(
                     tel = spaceModel.telephone,
-                    email = spaceModel.email,
+                    email = spaceModel.email
                 )
 
                 SpaceCautionSection()
 
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .background(colors.black),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = stringResource(R.string.space_button_reservation),
-                        style = typography.ns_sb_16,
-                        color = colors.white,
-                        modifier = Modifier
-                            .padding(vertical = 16.dp)
-                    )
-                }
+
             }
         }
 
@@ -152,6 +139,22 @@ private fun SpaceScreen(
                 )
             }
         }
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(colors.black)
+                .align(Alignment.BottomCenter),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = stringResource(R.string.space_button_reservation),
+                style = typography.ns_sb_16,
+                color = colors.white,
+                modifier = Modifier
+                    .padding(vertical = 16.dp)
+            )
+        }
     }
 }
 
@@ -160,12 +163,12 @@ private fun SpaceCautionSection() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 24.dp, horizontal = 20.dp)
+            .padding(top = 24.dp, bottom = 80.dp, start = 20.dp, end = 20.dp)
     ) {
         Text(
             text = stringResource(R.string.space_caution_title),
             style = typography.ns_sb_20,
-            color = colors.black,
+            color = colors.black
         )
         SpaceCautionGrid()
     }
@@ -174,7 +177,7 @@ private fun SpaceCautionSection() {
 @Composable
 private fun SpaceContactSection(
     tel: String,
-    email: String,
+    email: String
 ) {
     Column(
         modifier = Modifier
@@ -183,7 +186,7 @@ private fun SpaceContactSection(
         Text(
             text = stringResource(R.string.space_contact_title),
             style = typography.ns_sb_20,
-            color = colors.black,
+            color = colors.black
         )
         Row(
             modifier = Modifier
@@ -198,7 +201,7 @@ private fun SpaceContactSection(
             Text(
                 text = tel,
                 style = typography.ns_r_16,
-                color = colors.black,
+                color = colors.black
             )
         }
         Row(
@@ -214,7 +217,7 @@ private fun SpaceContactSection(
             Text(
                 text = email,
                 style = typography.ns_r_16,
-                color = colors.black,
+                color = colors.black
             )
         }
     }
@@ -229,7 +232,7 @@ private fun SpaceContactSection(
 private fun SpaceReviewSection(
     reviewList: List<SpaceReviewModel>,
     onClickLike: (Int) -> Unit,
-    pagerState: PagerState,
+    pagerState: PagerState
 ) {
     Text(
         text = stringResource(R.string.space_review_title),
@@ -306,7 +309,7 @@ private fun SpaceCrowdInfoSection() {
 
 @Composable
 private fun SpaceLocationSection(
-    address: String,
+    address: String
 ) {
     Text(
         text = stringResource(R.string.space_location_title),
@@ -356,7 +359,7 @@ private fun SpaceLocationSection(
 
 @Composable
 private fun SpaceIntroductionSection(
-    contentDescription: String,
+    contentDescription: String
 ) {
     Column(
         modifier = Modifier
@@ -384,7 +387,7 @@ private fun SpaceIntroductionSection(
 
 @Composable
 private fun SpaceHeaderBannerSection(
-    imageUrl: String,
+    imageUrl: String
 ) {
     AsyncImage(
         model = imageUrl,
