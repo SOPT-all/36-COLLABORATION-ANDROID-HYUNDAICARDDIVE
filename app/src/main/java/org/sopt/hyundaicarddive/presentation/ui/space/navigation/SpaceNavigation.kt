@@ -12,9 +12,12 @@ fun NavController.navigateToSpace() {
 }
 
 fun NavGraphBuilder.spaceNavGraph(
-    padding: PaddingValues
+    padding: PaddingValues,
+    navController: NavController
 ) {
     composable<SpaceAndCultureRoute.Space> {
-        SpaceRoute(padding = padding)
+        SpaceRoute(
+            padding = padding,
+            onBackClick = { navController.popBackStack() })
     }
 }

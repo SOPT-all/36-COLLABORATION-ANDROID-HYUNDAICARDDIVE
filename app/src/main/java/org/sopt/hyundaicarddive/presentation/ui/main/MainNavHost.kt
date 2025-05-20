@@ -37,7 +37,9 @@ fun MainNavHost(
                 padding = padding,
                 navController = navigator.navController
             )
-            spaceNavGraph(padding)
+            spaceNavGraph(padding,
+                navController = navigator.navController
+            )
         }
     }
 }

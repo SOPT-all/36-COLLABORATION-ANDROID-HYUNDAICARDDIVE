@@ -50,6 +50,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 @Composable
 fun SpaceRoute(
     padding: PaddingValues,
+    onBackClick: () -> Unit,
     viewModel: SpaceViewModel = hiltViewModel(),
 ) {
     val reviewList by viewModel.reviewList.collectAsStateWithLifecycle()
@@ -66,7 +67,7 @@ fun SpaceRoute(
 
     SpaceScreen(
         padding = padding,
-        onBackClick = {},
+        onBackClick = onBackClick,
         onClickLike = viewModel::toggleLike,
         reviewList = reviewList,
         pagerState = pagerState,
