@@ -54,6 +54,7 @@
 
     <string name="space_caution_title">입장 시 유의사항</string>
     <string name="space_button_reservation">레어북룸 예약</string>
+    <string name="space_review_list_reviewer">%s 님</string>
 
     <!-- Detail -->
     <string name="detail_tab_bar_address_title">주소ㅤㅤ</string>

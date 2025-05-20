@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -60,7 +61,7 @@ fun SpaceReviewPager(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = spaceReviewList[page].reviewer + " 님",
+                    text = stringResource(R.string.space_review_list_reviewer, spaceReviewList[page].reviewer),
                     style = typography.ns_sb_16,
                     color = colors.black,
                     modifier = Modifier
@@ -91,9 +92,3 @@ fun SpaceReviewPager(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-private fun Preview() {
-    HYUNDAICARDDIVETheme {
-    }
-}
