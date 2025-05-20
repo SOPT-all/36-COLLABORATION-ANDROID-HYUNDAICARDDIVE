@@ -22,7 +22,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun SpaceCautionGrid(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier
@@ -52,7 +52,7 @@ fun SpaceCautionGrid(
 @Composable
 private fun SpaceCautionGridCard(
     spaceCautionGridItem: SpaceCautionGridItem,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier

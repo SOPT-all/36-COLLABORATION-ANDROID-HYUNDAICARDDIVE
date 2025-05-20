@@ -18,13 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.util.noRippleClickable
 import org.sopt.hyundaicarddive.presentation.model.SpaceReviewModel
-import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
@@ -33,7 +31,7 @@ fun SpaceReviewPager(
     spaceReviewList: List<SpaceReviewModel>,
     pagerState: PagerState,
     onClickLike: (Int) -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     HorizontalPager(
         modifier = modifier
@@ -91,4 +89,3 @@ fun SpaceReviewPager(
         }
     }
 }
-
