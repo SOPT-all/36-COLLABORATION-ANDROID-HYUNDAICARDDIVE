@@ -6,14 +6,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-import org.sopt.hyundaicarddive.domain.usecase.DummyUseCase
+import org.sopt.hyundaicarddive.domain.usecase.HomeUseCase
 import org.sopt.hyundaicarddive.presentation.model.SpaceModel
 import org.sopt.hyundaicarddive.presentation.model.SpaceReviewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class SpaceViewModel @Inject constructor(
-    private val dummyUseCase: DummyUseCase
+    private val homeUseCase: HomeUseCase
 ) : ViewModel() {
 
     private val _reviewList = MutableStateFlow<List<SpaceReviewModel>>(emptyList())
