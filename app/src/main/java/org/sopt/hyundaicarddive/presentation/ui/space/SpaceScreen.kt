@@ -28,9 +28,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,6 +38,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import org.sopt.hyundaicarddive.R
+import org.sopt.hyundaicarddive.presentation.model.SpaceModel
 import org.sopt.hyundaicarddive.presentation.model.SpaceReviewModel
 import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceBaseButton
 import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceCautionGrid
@@ -49,12 +50,14 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 @Composable
 fun SpaceRoute(
     padding: PaddingValues,
-    viewModel: SpaceViewModel = hiltViewModel()
+    viewModel: SpaceViewModel = hiltViewModel(),
 ) {
     val reviewList by viewModel.reviewList.collectAsStateWithLifecycle()
+    val spaceModel by viewModel.spaceModel.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         viewModel.getReviewListItem()
+        viewModel.getSpace()
     }
 
     val pagerState = rememberPagerState(pageCount = {
@@ -64,9 +67,10 @@ fun SpaceRoute(
     SpaceScreen(
         padding = padding,
         onBackClick = {},
-        reviewList = reviewList,
         onClickLike = viewModel::toggleLike,
-        pagerState = pagerState
+        reviewList = reviewList,
+        pagerState = pagerState,
+        spaceModel = spaceModel,
     )
 }
 
@@ -77,7 +81,8 @@ private fun SpaceScreen(
     onClickLike: (Int) -> Unit,
     pagerState: PagerState,
     reviewList: List<SpaceReviewModel>,
-    modifier: Modifier = Modifier
+    spaceModel: SpaceModel?,
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = modifier
@@ -88,11 +93,13 @@ private fun SpaceScreen(
             modifier = modifier.fillMaxSize()
         ) {
             item {
-                SpaceHeaderBannerSection()
+                spaceModel ?: return@item
 
-                SpaceIntroductionSection()
+                SpaceHeaderBannerSection(imageUrl = spaceModel.bannerUrl)
 
-                SpaceLocationSection()
+                SpaceIntroductionSection(contentDescription = spaceModel.introduction)
+
+                SpaceLocationSection(address = spaceModel.address)
 
                 SpaceCrowdInfoSection()
 
@@ -102,7 +109,10 @@ private fun SpaceScreen(
                     pagerState = pagerState
                 )
 
-                SpaceContactSection()
+                SpaceContactSection(
+                    tel = spaceModel.telephone,
+                    email = spaceModel.email,
+                )
 
                 SpaceCautionSection()
 
@@ -111,9 +121,9 @@ private fun SpaceScreen(
                         .fillMaxWidth()
                         .background(colors.black),
                     contentAlignment = Alignment.Center,
-                ){
+                ) {
                     Text(
-                        text = "테이블룸 예약",
+                        text = stringResource(R.string.space_button_reservation),
                         style = typography.ns_sb_16,
                         color = colors.white,
                         modifier = Modifier
@@ -150,9 +160,9 @@ private fun SpaceCautionSection() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 24.dp, horizontal = 20.dp)
-    ){
+    ) {
         Text(
-            text = "입장 시 유의사항",
+            text = stringResource(R.string.space_caution_title),
             style = typography.ns_sb_20,
             color = colors.black,
         )
@@ -161,28 +171,31 @@ private fun SpaceCautionSection() {
 }
 
 @Composable
-private fun SpaceContactSection() {
+private fun SpaceContactSection(
+    tel: String,
+    email: String,
+) {
     Column(
         modifier = Modifier
             .padding(vertical = 24.dp, horizontal = 20.dp)
-    ){
+    ) {
         Text(
-            text = "기타 문의",
+            text = stringResource(R.string.space_contact_title),
             style = typography.ns_sb_20,
             color = colors.black,
         )
         Row(
             modifier = Modifier
                 .padding(top = 16.dp)
-        ){
+        ) {
             Text(
-                text = "Tel.",
+                text = stringResource(R.string.space_contact_tel_title),
                 style = typography.ns_sb_16,
                 color = colors.black,
                 modifier = Modifier.padding(end = 16.dp)
             )
             Text(
-                text = "02-3700-2700",
+                text = tel,
                 style = typography.ns_r_16,
                 color = colors.black,
             )
@@ -190,15 +203,15 @@ private fun SpaceContactSection() {
         Row(
             modifier = Modifier
                 .padding(top = 5.dp)
-        ){
+        ) {
             Text(
-                text = "E-mail.",
+                text = stringResource(R.string.space_contact_email_title),
                 style = typography.ns_sb_16,
                 color = colors.black,
                 modifier = Modifier.padding(end = 16.dp)
             )
             Text(
-                text = "designlibrary@hcs.com",
+                text = email,
                 style = typography.ns_r_16,
                 color = colors.black,
             )
@@ -215,10 +228,10 @@ private fun SpaceContactSection() {
 private fun SpaceReviewSection(
     reviewList: List<SpaceReviewModel>,
     onClickLike: (Int) -> Unit,
-    pagerState: PagerState
+    pagerState: PagerState,
 ) {
     Text(
-        text = "방문 인증",
+        text = stringResource(R.string.space_review_title),
         style = typography.ns_sb_20,
         color = colors.black,
         modifier = Modifier.padding(start = 20.dp, top = 24.dp)
@@ -239,7 +252,7 @@ private fun SpaceReviewSection(
                 contentDescription = null
             )
             Text(
-                text = "방문 경험을 공유해주세요.",
+                text = stringResource(R.string.space_review_description),
                 style = typography.ns_r_14,
                 color = colors.black,
                 modifier = Modifier
@@ -270,7 +283,7 @@ private fun SpaceCrowdInfoSection() {
         modifier = Modifier.padding(vertical = 24.dp, horizontal = 20.dp)
     ) {
         Text(
-            text = "혼잡 시간대",
+            text = stringResource(R.string.space_crowd_info_title),
             style = typography.ns_sb_20,
             color = colors.black
         )
@@ -291,9 +304,11 @@ private fun SpaceCrowdInfoSection() {
 }
 
 @Composable
-private fun SpaceLocationSection() {
+private fun SpaceLocationSection(
+    address: String,
+) {
     Text(
-        text = "오시는 길",
+        text = stringResource(R.string.space_location_title),
         style = typography.ns_sb_20,
         color = colors.black,
         modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 24.dp)
@@ -307,7 +322,7 @@ private fun SpaceLocationSection() {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = "서울시 종로구 북촌로 31-18",
+            text = address,
             style = typography.ns_r_14,
             color = colors.gray5,
             modifier = Modifier.padding(vertical = 1.5.dp)
@@ -328,7 +343,7 @@ private fun SpaceLocationSection() {
             .aspectRatio(360f / 190f)
     )
     SpaceBaseButton(
-        text = "카카오맵으로 열기",
+        text = stringResource(R.string.space_base_button_map),
         paddingValues = PaddingValues(top = 16.dp, bottom = 24.dp, start = 20.dp, end = 20.dp)
     )
     HorizontalDivider(
@@ -339,20 +354,22 @@ private fun SpaceLocationSection() {
 }
 
 @Composable
-private fun SpaceIntroductionSection() {
+private fun SpaceIntroductionSection(
+    contentDescription: String,
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 20.dp, vertical = 24.dp)
     ) {
         Text(
-            text = "공간소개",
+            text = stringResource(R.string.space_introduction_title),
             style = typography.ns_sb_20,
             color = colors.black,
             modifier = Modifier.padding(bottom = 16.dp)
         )
         Text(
-            text = "현대카드 디자인 라이브러리는 근대 디자인 정신이 태동한 지점인 바우하우스 이후의 디자인," + " 건축, 현대 미술에 관한 1만 9천여 권의 전문서적을 엄선하여 선보인다. 소량 인쇄했거나," + " 절판된 희귀 도서를 포함해 글로벌 북 큐레이터가 선정한 북 컬렉션과 디자인에 특화된 도서 카테고리에서 디자인 라이브러리의 전문성과 객관성을 발견할 수 있다.\n\n가회동에서 위치한 전통과 현대의 조화로 재해석해 리노베이션 한 라이브러리 공간에서는 다채로운 경험을 선사한다." + " \n\n바쁜 도시의 급한 발걸음을 잊고 몰입의 시간을 통해 지적인 영감을 얻을 수 있는 공간, 현대카드 디자인 라이브러리이다.",
+            text = contentDescription,
             style = typography.ns_r_16,
             color = colors.gray5
         )
@@ -365,16 +382,18 @@ private fun SpaceIntroductionSection() {
 }
 
 @Composable
-private fun SpaceHeaderBannerSection() {
+private fun SpaceHeaderBannerSection(
+    imageUrl: String,
+) {
     AsyncImage(
-        model = "https://picsum.photos/360/266",
+        model = imageUrl,
         contentDescription = null,
         modifier = Modifier
             .fillMaxWidth()
             .aspectRatio(360f / 266f)
     )
     SpaceBaseButton(
-        "보유 도서 검색하기",
+        text = stringResource(id = R.string.space_base_button_search),
         paddingValues = PaddingValues(horizontal = 20.dp, vertical = 16.dp)
     )
     HorizontalDivider(
