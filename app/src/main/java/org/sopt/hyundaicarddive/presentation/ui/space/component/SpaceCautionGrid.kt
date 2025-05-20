@@ -1,7 +1,5 @@
 package org.sopt.hyundaicarddive.presentation.ui.space.component
 
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -24,7 +22,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun SpaceCautionGrid(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier
@@ -43,9 +41,7 @@ fun SpaceCautionGrid(
                         modifier = Modifier
                             .weight(1f)
                             .fillMaxHeight(),
-                        description = card.description,
-                        logoResId = card.logoResId,
-                        detailDescription = card.detailDescription
+                        spaceCautionGridItem = card
                     )
                 }
             }
@@ -54,11 +50,9 @@ fun SpaceCautionGrid(
 }
 
 @Composable
-fun SpaceCautionGridCard(
-    @StringRes description: Int,
-    @DrawableRes logoResId: Int,
+private fun SpaceCautionGridCard(
+    spaceCautionGridItem: SpaceCautionGridItem,
     modifier: Modifier = Modifier,
-    @StringRes detailDescription: Int? = null
 ) {
     Column(
         modifier = modifier
@@ -66,12 +60,12 @@ fun SpaceCautionGridCard(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            painter = painterResource(logoResId),
+            painter = painterResource(spaceCautionGridItem.logoResId),
             contentDescription = null
         )
 
         Text(
-            text = stringResource(description),
+            text = stringResource(spaceCautionGridItem.description),
             color = colors.gray5,
             style = typography.ns_r_14,
             textAlign = TextAlign.Center,
@@ -79,9 +73,9 @@ fun SpaceCautionGridCard(
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.padding(top = 8.dp)
         )
-        detailDescription?.let {
+        spaceCautionGridItem.detailDescription?.let {
             Text(
-                text = stringResource(detailDescription),
+                text = stringResource(spaceCautionGridItem.detailDescription),
                 color = colors.gray4,
                 style = typography.ns_r_12,
                 textAlign = TextAlign.Center
