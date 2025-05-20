@@ -37,6 +37,24 @@
     <string name="space_notice_description6">스마트폰 사진\n촬영 가능</string>
     <string name="space_notice_description6_detail">카메라 및 촬영\n전문 장비 사용 불가</string>
 
+    <string name="space_introduction_title">공간소개</string>
+    <string name="space_base_button_search">보유 도서 검색하기</string>
+
+    <string name="space_location_title">오시는 길</string>
+    <string name="space_base_button_map">카카오맵으로 열기</string>
+
+    <string name="space_crowd_info_title">혼잡 시간대</string>
+
+    <string name="space_review_title">방문 인증</string>
+    <string name="space_review_description">방문 경험을 공유해주세요.</string>
+
+    <string name="space_contact_title">기타 문의</string>
+    <string name="space_contact_tel_title">Tel.</string>
+    <string name="space_contact_email_title">E-mail.</string>
+
+    <string name="space_caution_title">입장 시 유의사항</string>
+    <string name="space_button_reservation">레어북룸 예약</string>
+
     <!-- Detail -->
     <string name="detail_tab_bar_address_title">주소ㅤㅤ</string>
     <string name="detail_tab_bar_time_title">운영시간</string>
