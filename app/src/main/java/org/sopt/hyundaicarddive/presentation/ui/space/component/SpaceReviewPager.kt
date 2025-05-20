@@ -32,7 +32,7 @@ fun SpaceReviewPager(
     spaceReviewList: List<SpaceReviewModel>,
     pagerState: PagerState,
     onClickLike: (Int) -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     HorizontalPager(
         modifier = modifier
@@ -40,7 +40,7 @@ fun SpaceReviewPager(
             .padding(bottom = 24.dp),
         state = pagerState,
         pageSize = PageSize.Fill,
-        contentPadding = PaddingValues(horizontal = 20.dp),
+        contentPadding = PaddingValues(horizontal = 20.dp)
     ) { page ->
 
         if (page == spaceReviewList.size) {

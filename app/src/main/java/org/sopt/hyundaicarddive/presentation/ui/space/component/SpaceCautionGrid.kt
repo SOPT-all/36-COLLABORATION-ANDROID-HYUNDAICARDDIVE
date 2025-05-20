@@ -5,11 +5,9 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,7 +24,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun SpaceCautionGrid(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier
@@ -60,7 +58,7 @@ fun SpaceCautionGridCard(
     @StringRes description: Int,
     @DrawableRes logoResId: Int,
     modifier: Modifier = Modifier,
-    @StringRes detailDescription: Int? = null,
+    @StringRes detailDescription: Int? = null
 ) {
     Column(
         modifier = modifier
@@ -79,16 +77,15 @@ fun SpaceCautionGridCard(
             textAlign = TextAlign.Center,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
-            modifier = Modifier.padding(top = 8.dp),
+            modifier = Modifier.padding(top = 8.dp)
         )
         detailDescription?.let {
             Text(
                 text = stringResource(detailDescription),
                 color = colors.gray4,
                 style = typography.ns_r_12,
-                textAlign = TextAlign.Center,
+                textAlign = TextAlign.Center
             )
         }
     }
-
 }

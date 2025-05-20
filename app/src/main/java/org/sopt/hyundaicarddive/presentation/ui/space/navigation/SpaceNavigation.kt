@@ -18,6 +18,7 @@ fun NavGraphBuilder.spaceNavGraph(
     composable<SpaceAndCultureRoute.Space> {
         SpaceRoute(
             padding = padding,
-            onBackClick = { navController.popBackStack() })
+            onBackClick = { navController.popBackStack() }
+        )
     }
 }

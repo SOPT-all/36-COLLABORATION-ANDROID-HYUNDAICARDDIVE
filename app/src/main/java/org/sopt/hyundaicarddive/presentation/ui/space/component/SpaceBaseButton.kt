@@ -23,7 +23,7 @@ fun SpaceBaseButton(
     text: String,
     paddingValues: PaddingValues,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit = {},
+    onClick: () -> Unit = {}
 ) {
     Box(
         modifier = modifier
@@ -36,7 +36,7 @@ fun SpaceBaseButton(
                 shape = RoundedCornerShape(3.dp)
             )
             .noRippleClickable { onClick },
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.Center
     ) {
         Text(
             text = text,

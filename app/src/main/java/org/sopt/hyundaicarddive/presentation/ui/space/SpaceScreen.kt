@@ -116,8 +116,6 @@ private fun SpaceScreen(
                 )
 
                 SpaceCautionSection()
-
-
             }
         }
 

@@ -5,7 +5,7 @@ data class SpaceModel(
     val introduction: String,
     val address: String,
     val telephone: String,
-    val email: String,
+    val email: String
 )
 
 data class SpaceReviewModel(
