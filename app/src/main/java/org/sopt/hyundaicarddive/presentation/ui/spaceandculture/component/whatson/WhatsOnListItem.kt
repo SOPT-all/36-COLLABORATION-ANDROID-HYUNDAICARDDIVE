@@ -22,16 +22,16 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import org.sopt.hyundaicarddive.presentation.model.WhatsOnListModel
+import org.sopt.hyundaicarddive.domain.model.SpaceAndCultureWhatsOnData
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun WhatsOnListItem(
-    whatsOnListModel: WhatsOnListModel,
+    whatsOnListModel: SpaceAndCultureWhatsOnData,
     modifier: Modifier = Modifier,
-    isLast: Boolean = false
+    isLast: Boolean = false,
 ) {
     Row(
         modifier = modifier
@@ -135,7 +135,7 @@ fun WhatsOnListItem(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewWhatsOnListItem() {
-    val model = WhatsOnListModel(
+    val model = SpaceAndCultureWhatsOnData(
         date = "05/10(토) ~ 06/29(일)",
         title = "현대 회화의 새로운 서사",
         description = "Storage 데이비드 살레 국내 최초\n회고전",

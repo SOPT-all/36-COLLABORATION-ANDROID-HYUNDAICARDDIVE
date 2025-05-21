@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -18,6 +19,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
+import org.sopt.hyundaicarddive.core.util.toast
 import org.sopt.hyundaicarddive.domain.model.SpaceAndCultureWhatsOnData
 import org.sopt.hyundaicarddive.presentation.type.SpaceAndCultureGridItem
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
@@ -32,10 +34,20 @@ fun SpaceAndCultureRoute(
     navigateToDetail: () -> Unit,
     viewModel: SpaceAndCultureViewModel = hiltViewModel(),
 ) {
+    val context = LocalContext.current
+    val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
+
     val whatsOnList by viewModel.whatsOnList.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
         viewModel.getWhatsOnList()
+    }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            context.toast(it)
+            viewModel.clearToastMessage()
+        }
     }
 
     SpaceAndCultureScreen(
