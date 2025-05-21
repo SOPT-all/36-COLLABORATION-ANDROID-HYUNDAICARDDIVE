@@ -4,8 +4,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import org.sopt.hyundaicarddive.data.remote.datasource.DetailRemoteDataSource
 import javax.inject.Singleton
 import org.sopt.hyundaicarddive.data.remote.datasource.HomeRemoteDataSource
+import org.sopt.hyundaicarddive.data.remote.datasourceimpl.DetailRemoteDataSourceImpl
 import org.sopt.hyundaicarddive.data.remote.datasourceimpl.HomeRemoteDataSourceImpl
 
 @Module
@@ -14,4 +16,8 @@ abstract class DataSourceModule {
     @Binds
     @Singleton
     abstract fun bindsHomeDataSource(homeRemoteDataSourceImpl: HomeRemoteDataSourceImpl): HomeRemoteDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindsDetailDataSource(detailRemoteDataSourceImpl: DetailRemoteDataSourceImpl): DetailRemoteDataSource
 }
