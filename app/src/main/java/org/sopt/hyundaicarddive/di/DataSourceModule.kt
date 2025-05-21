@@ -6,7 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import org.sopt.hyundaicarddive.data.remote.datasource.HomeRemoteDataSource
+import org.sopt.hyundaicarddive.data.remote.datasource.SpaceAndCultureRemoteDataSource
 import org.sopt.hyundaicarddive.data.remote.datasourceimpl.HomeRemoteDataSourceImpl
+import org.sopt.hyundaicarddive.data.remote.datasourceimpl.SpaceAndCultureRemoteDataSourceImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -14,4 +16,8 @@ abstract class DataSourceModule {
     @Binds
     @Singleton
     abstract fun bindsHomeDataSource(homeRemoteDataSourceImpl: HomeRemoteDataSourceImpl): HomeRemoteDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindsSpaceAndCultureDataSource(spaceAndCultureRemoteDataSourceImpl: SpaceAndCultureRemoteDataSourceImpl): SpaceAndCultureRemoteDataSource
 }
