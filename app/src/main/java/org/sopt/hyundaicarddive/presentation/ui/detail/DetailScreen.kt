@@ -38,8 +38,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
-import org.sopt.hyundaicarddive.presentation.model.DetailArticleModel
-import org.sopt.hyundaicarddive.presentation.model.DetailModel
+import org.sopt.hyundaicarddive.domain.model.DetailArticleData
+import org.sopt.hyundaicarddive.domain.model.DetailData
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
 import org.sopt.hyundaicarddive.presentation.ui.detail.component.DetailDescriptionSection
 import org.sopt.hyundaicarddive.presentation.ui.detail.component.DetailPager
@@ -58,7 +58,7 @@ fun DetailRoute(
     LaunchedEffect(Unit) {
         viewModel.getDetail()
     }
-    val detailModel by viewModel.detailModel.collectAsStateWithLifecycle()
+    val detailModel by viewModel.detailData.collectAsStateWithLifecycle()
 
     val pagerState = rememberPagerState(pageCount = {
         detailModel?.articleList?.size ?: 0
@@ -93,7 +93,7 @@ fun DetailRoute(
 @Composable
 private fun DetailScreen(
     pagerState: PagerState,
-    detailModel: DetailModel?,
+    detailModel: DetailData?,
     modifier: Modifier = Modifier,
     navigateToSpace: () -> Unit,
     onBackClick: () -> Unit
@@ -217,29 +217,29 @@ private fun PreviewDetailScreen() {
                     4
                 }
             ),
-            detailModel = DetailModel(
+            detailModel = DetailData(
                 address = "서울시 종로구 북촌로 31-18",
                 operationTime = "화~토 12~21시 / 일, 공휴일 12~18시 (설, 추석 연휴 휴관)",
                 articleList = listOf(
-                    DetailArticleModel(
+                    DetailArticleData(
                         imageUrl = "https://github.com/user-attachments/assets/947c4c77-5313-4aee-9a0a-031ecff323b7",
                         title = "경계선을 넘나드는 사진가",
                         subTitle = "4월의 디자이너, 다이안 아버스",
                         date = "2025.04.14"
                     ),
-                    DetailArticleModel(
+                    DetailArticleData(
                         imageUrl = "https://github.com/user-attachments/assets/c49dfb51-fe48-4822-abe0-53647c47d480",
                         title = "가장 창의적인 시대의 표상",
                         subTitle = "디자인 라이브러리 전권 보유 컬렉션",
                         date = "2025.03.18"
                     ),
-                    DetailArticleModel(
+                    DetailArticleData(
                         imageUrl = "https://github.com/user-attachments/assets/58d587a3-f902-4a90-bc2a-29b0763b8cda",
                         title = "한국의 디자인 역사를 품다",
                         subTitle = "월간 <디자인> 전권 보유 컬렉션 구축",
                         date = "2025.05.13"
                     ),
-                    DetailArticleModel(
+                    DetailArticleData(
                         imageUrl = "https://github.com/user-attachments/assets/f61a44c8-ec7c-4462-8c98-1c4f3fd82606",
                         title = "초록의 물결",
                         subTitle = "현대카드 라이브러리 5월의 새 책",
