@@ -16,5 +16,4 @@ class DetailRepositoryImpl @Inject constructor(
             articleList = emptyList()
         )
     }
-
 }

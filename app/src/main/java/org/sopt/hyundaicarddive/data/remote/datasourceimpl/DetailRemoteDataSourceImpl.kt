@@ -11,6 +11,4 @@ class DetailRemoteDataSourceImpl @Inject constructor(
 ) : DetailRemoteDataSource {
     override suspend fun getDetail(): BaseResponse<DetailResponseDto> =
         detailService.getDetail()
-
-
 }

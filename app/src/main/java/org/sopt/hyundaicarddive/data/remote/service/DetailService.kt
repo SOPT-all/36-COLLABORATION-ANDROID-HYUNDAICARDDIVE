@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface DetailService {
 
     @GET("/api/space")
-    suspend fun getDetail() : BaseResponse<DetailResponseDto>
+    suspend fun getDetail(): BaseResponse<DetailResponseDto>
 }
