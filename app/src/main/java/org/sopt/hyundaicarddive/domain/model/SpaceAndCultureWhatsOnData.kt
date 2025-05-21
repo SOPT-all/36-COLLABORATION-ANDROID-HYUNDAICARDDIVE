@@ -1,6 +1,6 @@
-package org.sopt.hyundaicarddive.presentation.model
+package org.sopt.hyundaicarddive.domain.model
 
-data class WhatsOnListModel(
+data class SpaceAndCultureWhatsOnData(
     val date: String,
     val title: String,
     val description: String,
