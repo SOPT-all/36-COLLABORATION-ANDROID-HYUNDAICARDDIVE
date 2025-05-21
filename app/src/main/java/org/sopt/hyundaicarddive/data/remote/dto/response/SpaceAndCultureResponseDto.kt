@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class SpaceAndCultureResponseDto (
+data class SpaceAndCultureResponseDto(
     @SerialName("dataList")
     val dataList: List<WhatsOnListDto>
 )
@@ -24,5 +24,5 @@ data class WhatsOnListDto(
     @SerialName("reservation")
     val isReservable: Boolean,
     @SerialName("image")
-    val imageUrl: String,
+    val imageUrl: String
 )

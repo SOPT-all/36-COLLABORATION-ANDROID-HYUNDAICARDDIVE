@@ -13,5 +13,5 @@ fun WhatsOnListDto.toDomain(): SpaceAndCultureWhatsOnData = SpaceAndCultureWhats
     stage = this.stage,
     location = this.location,
     isReservable = this.isReservable,
-    imageUrl = this.imageUrl,
+    imageUrl = this.imageUrl
 )

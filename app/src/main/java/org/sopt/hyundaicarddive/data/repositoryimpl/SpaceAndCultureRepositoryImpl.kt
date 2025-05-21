@@ -7,10 +7,9 @@ import org.sopt.hyundaicarddive.domain.repository.SpaceAndCultureRepository
 import javax.inject.Inject
 
 class SpaceAndCultureRepositoryImpl @Inject constructor(
-    private val spaceAndCultureRemoteDataSource: SpaceAndCultureRemoteDataSource,
+    private val spaceAndCultureRemoteDataSource: SpaceAndCultureRemoteDataSource
 ) : SpaceAndCultureRepository {
     override suspend fun getWhatsOn(): Result<List<SpaceAndCultureWhatsOnData>> = runCatching {
         spaceAndCultureRemoteDataSource.getWhatsOn().data?.toDomain() ?: emptyList()
     }
-
 }

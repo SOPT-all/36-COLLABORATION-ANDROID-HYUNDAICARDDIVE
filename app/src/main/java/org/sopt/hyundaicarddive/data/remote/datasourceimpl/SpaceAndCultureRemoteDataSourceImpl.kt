@@ -7,7 +7,7 @@ import org.sopt.hyundaicarddive.data.remote.service.SpaceAndCultureService
 import javax.inject.Inject
 
 class SpaceAndCultureRemoteDataSourceImpl @Inject constructor(
-    private val spaceAndCultureService: SpaceAndCultureService,
+    private val spaceAndCultureService: SpaceAndCultureService
 ) : SpaceAndCultureRemoteDataSource {
     override suspend fun getWhatsOn(): BaseResponse<SpaceAndCultureResponseDto> =
         spaceAndCultureService.getWhatsOn()

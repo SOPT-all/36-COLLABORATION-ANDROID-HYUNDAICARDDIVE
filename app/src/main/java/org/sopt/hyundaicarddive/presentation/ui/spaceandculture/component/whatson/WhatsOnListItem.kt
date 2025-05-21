@@ -31,7 +31,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 fun WhatsOnListItem(
     whatsOnListModel: SpaceAndCultureWhatsOnData,
     modifier: Modifier = Modifier,
-    isLast: Boolean = false,
+    isLast: Boolean = false
 ) {
     Row(
         modifier = modifier

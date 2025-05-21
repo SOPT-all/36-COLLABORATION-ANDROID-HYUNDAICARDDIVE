@@ -7,16 +7,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.domain.model.SpaceAndCultureWhatsOnData
 import org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component.SpaceAndCultureHeader
-import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
 fun SpaceAndCultureWhatsOnSection(
-    whatsOnList: List<SpaceAndCultureWhatsOnData>,
+    whatsOnList: List<SpaceAndCultureWhatsOnData>
 ) {
     Column {
         SpaceAndCultureHeader(

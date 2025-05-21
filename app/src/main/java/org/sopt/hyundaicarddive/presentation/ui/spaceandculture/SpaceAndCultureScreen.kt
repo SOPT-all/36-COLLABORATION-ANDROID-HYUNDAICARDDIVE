@@ -32,7 +32,7 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 fun SpaceAndCultureRoute(
     padding: PaddingValues,
     navigateToDetail: () -> Unit,
-    viewModel: SpaceAndCultureViewModel = hiltViewModel(),
+    viewModel: SpaceAndCultureViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
@@ -65,7 +65,7 @@ private fun SpaceAndCultureScreen(
     whatsOnList: List<SpaceAndCultureWhatsOnData>,
     spaceList: List<SpaceAndCultureGridItem>,
     cultureList: List<SpaceAndCultureGridItem>,
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier.fillMaxSize()

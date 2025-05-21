@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SpaceAndCultureViewModel @Inject constructor(
-    private val spaceAndCultureUseCase: SpaceAndCultureUseCase,
+    private val spaceAndCultureUseCase: SpaceAndCultureUseCase
 ) : ViewModel() {
 
     private val _whatsOnList = MutableStateFlow<List<SpaceAndCultureWhatsOnData>>(emptyList())
