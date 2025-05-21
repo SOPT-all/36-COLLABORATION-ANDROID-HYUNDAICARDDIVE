@@ -28,6 +28,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,6 +39,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
+import org.sopt.hyundaicarddive.core.util.toast
 import org.sopt.hyundaicarddive.domain.model.DetailArticleData
 import org.sopt.hyundaicarddive.domain.model.DetailData
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
@@ -55,9 +57,20 @@ fun DetailRoute(
     onBackClick: () -> Unit,
     viewModel: DetailViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
+    val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
+
     LaunchedEffect(Unit) {
         viewModel.getDetail()
     }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            context.toast(it)
+            viewModel.clearToastMessage()
+        }
+    }
+
     val detailModel by viewModel.detailData.collectAsStateWithLifecycle()
 
     val pagerState = rememberPagerState(pageCount = {

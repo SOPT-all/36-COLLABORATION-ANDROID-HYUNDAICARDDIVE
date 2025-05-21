@@ -32,4 +32,8 @@ class DetailViewModel @Inject constructor(
                 }
         }
     }
+
+    fun clearToastMessage() {
+        _errorMessage.value = null
+    }
 }
