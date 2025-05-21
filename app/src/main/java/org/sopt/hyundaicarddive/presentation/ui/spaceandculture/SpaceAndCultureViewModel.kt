@@ -7,48 +7,21 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import org.sopt.hyundaicarddive.domain.usecase.HomeUseCase
-import org.sopt.hyundaicarddive.presentation.model.WhatsOnListModel
+import org.sopt.hyundaicarddive.domain.model.SpaceAndCultureWhatsOnData
+import org.sopt.hyundaicarddive.domain.usecase.SpaceAndCultureUseCase
 import org.sopt.hyundaicarddive.presentation.type.SpaceAndCultureGridItem
 import javax.inject.Inject
 
 @HiltViewModel
 class SpaceAndCultureViewModel @Inject constructor(
-    private val homeUseCase: HomeUseCase
+    private val spaceAndCultureUseCase: SpaceAndCultureUseCase,
 ) : ViewModel() {
 
-    private val _whatsOnList = MutableStateFlow<List<WhatsOnListModel>>(emptyList())
-    val whatsOnList: StateFlow<List<WhatsOnListModel>> = _whatsOnList.asStateFlow()
+    private val _whatsOnList = MutableStateFlow<List<SpaceAndCultureWhatsOnData>>(emptyList())
+    val whatsOnList: StateFlow<List<SpaceAndCultureWhatsOnData>> = _whatsOnList.asStateFlow()
 
-    private val dummyItems: List<WhatsOnListModel> = listOf(
-        WhatsOnListModel(
-            "05/10(토) ~ 06/29(일)",
-            "현대 회화의 새로운 서사",
-            "Storage 데이비드 살레 국내 최초\n회고전",
-            "스토리지",
-            "이태원",
-            false,
-            "https://picsum.photos/90/90"
-        ),
-        WhatsOnListModel(
-            "05/23(금)",
-            "손민수 Curated 25 박종해",
-            "하이든, 슈베르트, 라벨 피아노 연주회",
-            "스토리지",
-            "이태원",
-            true,
-            "https://picsum.photos/90/90"
-        ),
-        WhatsOnListModel(
-            "05/25(일)",
-            "현대카드 Curated 98\nATARAYO",
-            "계절을 노래하는 제이 팝 밴드",
-            "언더스테이지",
-            "이태원",
-            true,
-            "https://picsum.photos/90/90"
-        )
-    )
+    private val _errorMessage = MutableStateFlow<String?>(null)
+    val errorMessage: StateFlow<String?> = _errorMessage.asStateFlow()
 
     val spaceListItems: List<SpaceAndCultureGridItem> = listOf(
         SpaceAndCultureGridItem.SPACE_DESIGNLIB,
@@ -72,9 +45,18 @@ class SpaceAndCultureViewModel @Inject constructor(
         SpaceAndCultureGridItem.CULTURE_LIMITED
     )
 
-    fun getWhatsOnListItems() {
+    fun getWhatsOnList() {
         viewModelScope.launch {
-            _whatsOnList.value = dummyItems
+            spaceAndCultureUseCase()
+                .onSuccess { whatsOnDataList ->
+                    _whatsOnList.value = whatsOnDataList
+                }.onFailure { errorMessage ->
+                    _errorMessage.value = errorMessage.toString()
+                }
         }
+    }
+
+    fun clearToastMessage() {
+        _errorMessage.value = null
     }
 }

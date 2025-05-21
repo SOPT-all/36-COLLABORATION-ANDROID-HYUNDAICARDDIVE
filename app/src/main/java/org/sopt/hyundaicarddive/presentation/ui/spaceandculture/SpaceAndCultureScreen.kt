@@ -18,7 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.sopt.hyundaicarddive.R
 import org.sopt.hyundaicarddive.core.component.TopBar
-import org.sopt.hyundaicarddive.presentation.model.WhatsOnListModel
+import org.sopt.hyundaicarddive.domain.model.SpaceAndCultureWhatsOnData
 import org.sopt.hyundaicarddive.presentation.type.SpaceAndCultureGridItem
 import org.sopt.hyundaicarddive.presentation.type.TopBarType
 import org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component.SpaceAndCultureCardGrid
@@ -30,12 +30,12 @@ import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 fun SpaceAndCultureRoute(
     padding: PaddingValues,
     navigateToDetail: () -> Unit,
-    viewModel: SpaceAndCultureViewModel = hiltViewModel()
+    viewModel: SpaceAndCultureViewModel = hiltViewModel(),
 ) {
     val whatsOnList by viewModel.whatsOnList.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
-        viewModel.getWhatsOnListItems()
+        viewModel.getWhatsOnList()
     }
 
     SpaceAndCultureScreen(
@@ -50,10 +50,10 @@ fun SpaceAndCultureRoute(
 @Composable
 private fun SpaceAndCultureScreen(
     navigateToDetail: () -> Unit,
-    whatsOnList: List<WhatsOnListModel>,
+    whatsOnList: List<SpaceAndCultureWhatsOnData>,
     spaceList: List<SpaceAndCultureGridItem>,
     cultureList: List<SpaceAndCultureGridItem>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Column(
         modifier = modifier.fillMaxSize()
@@ -103,7 +103,7 @@ private fun PreviewSpaceAndCultureScreen() {
         SpaceAndCultureScreen(
             navigateToDetail = {},
             whatsOnList = listOf(
-                WhatsOnListModel(
+                SpaceAndCultureWhatsOnData(
                     "05/10(토) ~ 06/29(일)",
                     "현대 회화의 새로운 서사",
                     "Storage 데이비드 살레 국내 최초\n회고전",
@@ -112,7 +112,7 @@ private fun PreviewSpaceAndCultureScreen() {
                     false,
                     "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
-                WhatsOnListModel(
+                SpaceAndCultureWhatsOnData(
                     "05/23(금)",
                     "손민수 Curated 25 박종해",
                     "하이든, 슈베르트, 라벨 피아노 연주회",
@@ -121,7 +121,7 @@ private fun PreviewSpaceAndCultureScreen() {
                     true,
                     "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
-                WhatsOnListModel(
+                SpaceAndCultureWhatsOnData(
                     "05/23(금)",
                     "손민수 Curated 25 박종해",
                     "하이든, 슈베르트, 라벨 피아노 연주회",

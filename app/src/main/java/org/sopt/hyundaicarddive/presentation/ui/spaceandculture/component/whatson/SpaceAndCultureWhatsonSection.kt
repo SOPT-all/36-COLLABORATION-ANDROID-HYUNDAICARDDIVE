@@ -10,13 +10,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.sopt.hyundaicarddive.R
-import org.sopt.hyundaicarddive.presentation.model.WhatsOnListModel
+import org.sopt.hyundaicarddive.domain.model.SpaceAndCultureWhatsOnData
 import org.sopt.hyundaicarddive.presentation.ui.spaceandculture.component.SpaceAndCultureHeader
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 
 @Composable
 fun SpaceAndCultureWhatsOnSection(
-    whatsOnList: List<WhatsOnListModel>
+    whatsOnList: List<SpaceAndCultureWhatsOnData>,
 ) {
     Column {
         SpaceAndCultureHeader(
@@ -43,7 +43,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
     HYUNDAICARDDIVETheme {
         SpaceAndCultureWhatsOnSection(
             whatsOnList = listOf(
-                WhatsOnListModel(
+                SpaceAndCultureWhatsOnData(
                     "05/10(토) ~ 06/29(일)",
                     "현대 회화의 새로운 서사",
                     "Storage 데이비드 살레 국내 최초\n회고전",
@@ -52,7 +52,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     false,
                     "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
-                WhatsOnListModel(
+                SpaceAndCultureWhatsOnData(
                     "05/23(금)",
                     "손민수 Curated 25 박종해",
                     "하이든, 슈베르트, 라벨 피아노 연주회",
@@ -61,7 +61,7 @@ private fun PreviewSpaceAndCultureWhatsOnSection() {
                     true,
                     "https://github.com/user-attachments/assets/c9e6105a-1e10-4af4-9347-b06f5c36128a"
                 ),
-                WhatsOnListModel(
+                SpaceAndCultureWhatsOnData(
                     "05/23(금)",
                     "손민수 Curated 25 박종해",
                     "하이든, 슈베르트, 라벨 피아노 연주회",
