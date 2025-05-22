@@ -7,9 +7,11 @@ import dagger.hilt.components.SingletonComponent
 import org.sopt.hyundaicarddive.data.repositoryimpl.DetailRepositoryImpl
 import org.sopt.hyundaicarddive.data.repositoryimpl.HomeRepositoryImpl
 import org.sopt.hyundaicarddive.data.repositoryimpl.SpaceAndCultureRepositoryImpl
+import org.sopt.hyundaicarddive.data.repositoryimpl.SpaceRepositoryImpl
 import org.sopt.hyundaicarddive.domain.repository.DetailRepository
 import org.sopt.hyundaicarddive.domain.repository.HomeRepository
 import org.sopt.hyundaicarddive.domain.repository.SpaceAndCultureRepository
+import org.sopt.hyundaicarddive.domain.repository.SpaceRepository
 import javax.inject.Singleton
 
 @Module
@@ -26,4 +28,8 @@ abstract class RepositoryModule {
     @Binds
     @Singleton
     abstract fun bindSpaceAndCultureRepository(spaceAndCultureRepositoryImpl: SpaceAndCultureRepositoryImpl): SpaceAndCultureRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindSpaceRepository(spaceRepositoryImpl: SpaceRepositoryImpl): SpaceRepository
 }
