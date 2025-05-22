@@ -89,6 +89,7 @@ private fun RowScope.MainBottomBarItem(
         Icon(
             imageVector = if (selected) ImageVector.vectorResource(tab.selectedIconResId) else ImageVector.vectorResource(tab.defaultIconResId),
             contentDescription = null,
+            tint = if (selected) colors.black else colors.gray4,
             modifier = Modifier.size(36.dp)
         )
     }

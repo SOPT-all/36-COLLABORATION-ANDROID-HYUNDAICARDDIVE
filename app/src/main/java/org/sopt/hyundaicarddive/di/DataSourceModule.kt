@@ -7,9 +7,11 @@ import dagger.hilt.components.SingletonComponent
 import org.sopt.hyundaicarddive.data.remote.datasource.DetailRemoteDataSource
 import org.sopt.hyundaicarddive.data.remote.datasource.HomeRemoteDataSource
 import org.sopt.hyundaicarddive.data.remote.datasource.SpaceAndCultureRemoteDataSource
+import org.sopt.hyundaicarddive.data.remote.datasource.SpaceRemoteDataSource
 import org.sopt.hyundaicarddive.data.remote.datasourceimpl.DetailRemoteDataSourceImpl
 import org.sopt.hyundaicarddive.data.remote.datasourceimpl.HomeRemoteDataSourceImpl
 import org.sopt.hyundaicarddive.data.remote.datasourceimpl.SpaceAndCultureRemoteDataSourceImpl
+import org.sopt.hyundaicarddive.data.remote.datasourceimpl.SpaceRemoteDataSourceImpl
 import javax.inject.Singleton
 
 @Module
@@ -26,4 +28,8 @@ abstract class DataSourceModule {
     @Binds
     @Singleton
     abstract fun bindsSpaceAndCultureDataSource(spaceAndCultureRemoteDataSourceImpl: SpaceAndCultureRemoteDataSourceImpl): SpaceAndCultureRemoteDataSource
+
+    @Binds
+    @Singleton
+    abstract fun bindsSpaceDataSource(spaceRemoteDataSourceImpl: SpaceRemoteDataSourceImpl): SpaceRemoteDataSource
 }

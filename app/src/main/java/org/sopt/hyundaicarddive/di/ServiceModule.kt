@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import org.sopt.hyundaicarddive.data.remote.service.DetailService
 import org.sopt.hyundaicarddive.data.remote.service.HomeService
 import org.sopt.hyundaicarddive.data.remote.service.SpaceAndCultureService
+import org.sopt.hyundaicarddive.data.remote.service.SpaceService
 import retrofit2.Retrofit
 import javax.inject.Singleton
 
@@ -27,4 +28,9 @@ object ServiceModule {
     @Singleton
     fun providesSpaceAndCultureService(retrofit: Retrofit): SpaceAndCultureService =
         retrofit.create(SpaceAndCultureService::class.java)
+
+    @Provides
+    @Singleton
+    fun providesSpaceService(retrofit: Retrofit): SpaceService =
+        retrofit.create(SpaceService::class.java)
 }
