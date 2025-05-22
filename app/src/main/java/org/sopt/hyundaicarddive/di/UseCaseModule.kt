@@ -9,8 +9,10 @@ import javax.inject.Singleton
 import org.sopt.hyundaicarddive.domain.repository.HomeRepository
 import org.sopt.hyundaicarddive.domain.usecase.DetailUseCase
 import org.sopt.hyundaicarddive.domain.repository.SpaceAndCultureRepository
+import org.sopt.hyundaicarddive.domain.repository.SpaceRepository
 import org.sopt.hyundaicarddive.domain.usecase.HomeUseCase
 import org.sopt.hyundaicarddive.domain.usecase.SpaceAndCultureUseCase
+import org.sopt.hyundaicarddive.domain.usecase.SpaceUseCase
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -32,4 +34,10 @@ object UseCaseModule {
     fun provideSpaceAndCultureUseCase(
         spaceAndCultureRepository: SpaceAndCultureRepository
     ): SpaceAndCultureUseCase = SpaceAndCultureUseCase(spaceAndCultureRepository)
+
+    @Provides
+    @Singleton
+    fun provideSpaceUseCase(
+        spaceRepository: SpaceRepository
+    ): SpaceUseCase = SpaceUseCase(spaceRepository)
 }
