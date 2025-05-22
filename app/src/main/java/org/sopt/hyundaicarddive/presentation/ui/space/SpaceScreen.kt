@@ -29,21 +29,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
 import org.sopt.hyundaicarddive.R
+import org.sopt.hyundaicarddive.core.util.toast
 import org.sopt.hyundaicarddive.presentation.model.SpaceModel
 import org.sopt.hyundaicarddive.presentation.model.SpaceReviewModel
 import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceBaseButton
 import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceCautionGrid
 import org.sopt.hyundaicarddive.presentation.ui.space.component.SpaceReviewPager
-import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
@@ -53,12 +53,21 @@ fun SpaceRoute(
     onBackClick: () -> Unit,
     viewModel: SpaceViewModel = hiltViewModel()
 ) {
+    val context = LocalContext.current
+    val errorMessage by viewModel.errorMessage.collectAsStateWithLifecycle()
+
     val reviewList by viewModel.reviewList.collectAsStateWithLifecycle()
     val spaceModel by viewModel.spaceModel.collectAsStateWithLifecycle()
 
     LaunchedEffect(Unit) {
-        viewModel.getReviewListItem()
         viewModel.getSpace()
+    }
+
+    LaunchedEffect(errorMessage) {
+        errorMessage?.let {
+            context.toast(it)
+            viewModel.clearToastMessage()
+        }
     }
 
     val pagerState = rememberPagerState(pageCount = {
@@ -403,11 +412,4 @@ private fun SpaceHeaderBannerSection(
         thickness = 12.dp,
         color = colors.white2
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun PreviewSpaceScreen() {
-    HYUNDAICARDDIVETheme {
-    }
 }

@@ -7,7 +7,7 @@ import org.sopt.hyundaicarddive.domain.repository.SpaceRepository
 import javax.inject.Inject
 
 class SpaceRepositoryImpl @Inject constructor(
-    private val spaceRemoteDataSource: SpaceRemoteDataSource,
+    private val spaceRemoteDataSource: SpaceRemoteDataSource
 ) : SpaceRepository {
     override suspend fun getSpace(): Result<SpaceData> = runCatching {
         spaceRemoteDataSource.getSpace().data?.toDomain() ?: SpaceData(

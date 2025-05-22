@@ -12,5 +12,5 @@ data class SpaceData(
 data class SpaceReviewData(
     val imageUrl: String,
     val reviewer: String,
-    val likeCount: Int,
+    val likeCount: Int
 )

@@ -16,7 +16,7 @@ data class SpaceResponseDto(
     @SerialName("telephone")
     val telephone: String,
     @SerialName("email")
-    val email: String,
+    val email: String
 )
 
 @Serializable
@@ -26,5 +26,5 @@ data class ReviewListDto(
     @SerialName("reviewer")
     val reviewer: String,
     @SerialName("likeCount")
-    val likeCount: Int,
+    val likeCount: Int
 )
