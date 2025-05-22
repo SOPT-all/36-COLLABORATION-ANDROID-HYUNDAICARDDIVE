@@ -5,12 +5,12 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.sopt.hyundaicarddive.data.remote.datasource.DetailRemoteDataSource
-import javax.inject.Singleton
 import org.sopt.hyundaicarddive.data.remote.datasource.HomeRemoteDataSource
-import org.sopt.hyundaicarddive.data.remote.datasourceimpl.DetailRemoteDataSourceImpl
 import org.sopt.hyundaicarddive.data.remote.datasource.SpaceAndCultureRemoteDataSource
+import org.sopt.hyundaicarddive.data.remote.datasourceimpl.DetailRemoteDataSourceImpl
 import org.sopt.hyundaicarddive.data.remote.datasourceimpl.HomeRemoteDataSourceImpl
 import org.sopt.hyundaicarddive.data.remote.datasourceimpl.SpaceAndCultureRemoteDataSourceImpl
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)

@@ -5,12 +5,12 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.sopt.hyundaicarddive.data.repositoryimpl.DetailRepositoryImpl
-import javax.inject.Singleton
 import org.sopt.hyundaicarddive.data.repositoryimpl.HomeRepositoryImpl
-import org.sopt.hyundaicarddive.domain.repository.DetailRepository
 import org.sopt.hyundaicarddive.data.repositoryimpl.SpaceAndCultureRepositoryImpl
+import org.sopt.hyundaicarddive.domain.repository.DetailRepository
 import org.sopt.hyundaicarddive.domain.repository.HomeRepository
 import org.sopt.hyundaicarddive.domain.repository.SpaceAndCultureRepository
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
