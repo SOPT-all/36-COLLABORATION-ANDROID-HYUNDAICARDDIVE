@@ -12,13 +12,13 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import org.sopt.hyundaicarddive.presentation.model.DetailArticleModel
+import org.sopt.hyundaicarddive.domain.model.DetailArticleData
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.colors
 import org.sopt.hyundaicarddive.ui.theme.HYUNDAICARDDIVETheme.typography
 
 @Composable
 fun DetailPager(
-    article: DetailArticleModel
+    article: DetailArticleData
 ) {
     Box(
         modifier = Modifier.fillMaxSize()
@@ -63,7 +63,7 @@ fun DetailPager(
 @Composable
 private fun PreviewDetailPager() {
     DetailPager(
-        article = DetailArticleModel(
+        article = DetailArticleData(
             imageUrl = "https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250507/1456/P001492081.jpg/dims/resize/F_webp,400",
             title = "경계선을 넘나드는 사진가",
             subTitle = "4월의 디자이너, 다이안 아버스",
