@@ -4,8 +4,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import org.sopt.hyundaicarddive.domain.repository.DetailRepository
 import javax.inject.Singleton
 import org.sopt.hyundaicarddive.domain.repository.HomeRepository
+import org.sopt.hyundaicarddive.domain.usecase.DetailUseCase
 import org.sopt.hyundaicarddive.domain.repository.SpaceAndCultureRepository
 import org.sopt.hyundaicarddive.domain.usecase.HomeUseCase
 import org.sopt.hyundaicarddive.domain.usecase.SpaceAndCultureUseCase
@@ -18,6 +20,12 @@ object UseCaseModule {
     fun provideHomeUseCase(
         homeRepository: HomeRepository
     ): HomeUseCase = HomeUseCase(homeRepository)
+
+    @Provides
+    @Singleton
+    fun provideDetailUseCase(
+        detailRepository: DetailRepository
+    ): DetailUseCase = DetailUseCase(detailRepository)
 
     @Provides
     @Singleton

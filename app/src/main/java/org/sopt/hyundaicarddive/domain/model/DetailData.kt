@@ -1,12 +1,12 @@
-package org.sopt.hyundaicarddive.presentation.model
+package org.sopt.hyundaicarddive.domain.model
 
-data class DetailModel(
+data class DetailData(
     val address: String,
     val operationTime: String,
-    val articleList: List<DetailArticleModel>
+    val articleList: List<DetailArticleData>
 )
 
-data class DetailArticleModel(
+data class DetailArticleData(
     val imageUrl: String,
     val title: String,
     val subTitle: String,
